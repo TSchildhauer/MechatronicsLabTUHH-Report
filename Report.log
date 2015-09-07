@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.11.22)  5 SEP 2015 15:40
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2012.11.22)  8 SEP 2015 00:20
 entering extended mode
 **Report.tex
 
@@ -458,12 +458,47 @@ Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\url.sty"
+\Urlmuskip=\muskip17
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+))
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
+Package: babel 2008/07/08 v3.8m The Babel package
+
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
+File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\ngermanb.ldf"
+Language: ngermanb 2008/07/06 v2.6n new German support from the babel system
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
+File: babel.def 2008/07/08 v3.8m Babel common definitions
+\babel@savecnt=\count147
+\U@D=\dimen163
+)
+\l@naustrian = a dialect from \language\l@ngerman 
+Package babel Info: Making " an active character on input line 92.
 ))
 \@input{Kapitel/Titelseite.aux}
 
 ("D:\Studium\Semester 8\Fachlabor Mechatronik\Github\MechatronicsLabTUHH-Report
 \Kapitel/Titelseite.tex"
-No file Report.aux.
+("D:\Studium\Semester 8\Fachlabor Mechatronik\Github\MechatronicsLabTUHH-Report
+\Report.aux"
+("D:\Studium\Semester 8\Fachlabor Mechatronik\Github\MechatronicsLabTUHH-Report
+\Kapitel/Einleitung.aux")
+("D:\Studium\Semester 8\Fachlabor Mechatronik\Github\MechatronicsLabTUHH-Report
+\Kapitel/Theorie.aux")
+("D:\Studium\Semester 8\Fachlabor Mechatronik\Github\MechatronicsLabTUHH-Report
+\Kapitel/Parameter.aux")
+("D:\Studium\Semester 8\Fachlabor Mechatronik\Github\MechatronicsLabTUHH-Report
+\Kapitel/Controller.aux")
+("D:\Studium\Semester 8\Fachlabor Mechatronik\Github\MechatronicsLabTUHH-Report
+\Kapitel/Ergebnisse.aux"))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
@@ -486,29 +521,30 @@ File: siunitx-abbreviations.cfg 2015/08/18 v2.6i siunitx: Abbreviated units
 )
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count147
-\scratchdimen=\dimen163
+\scratchcounter=\count148
+\scratchdimen=\dimen164
 \scratchbox=\box50
-\nofMPsegments=\count148
-\nofMParguments=\count149
+\nofMPsegments=\count149
+\nofMParguments=\count150
 \everyMPshowfont=\toks21
-\MPscratchCnt=\count150
-\MPscratchDim=\dimen164
-\MPnumerator=\count151
-\makeMPintoPDFobject=\count152
+\MPscratchCnt=\count151
+\MPscratchDim=\dimen165
+\MPnumerator=\count152
+\makeMPintoPDFobject=\count153
 \everyMPtoPDFconversion=\toks22
 )
-\c__siunitx_mathsf_int=\count153
-\c__siunitx_mathtt_int=\count154
+\c__siunitx_mathsf_int=\count154
+\c__siunitx_mathtt_int=\count155
 ) [1
 
 
 
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-No file Report.toc.
+("D:\Studium\Semester 8\Fachlabor Mechatronik\Github\MechatronicsLabTUHH-Report
+\Report.toc")
 \tf@toc=\write3
-[2
+ [2
 
 ]
 ("D:\Studium\Semester 8\Fachlabor Mechatronik\Github\MechatronicsLabTUHH-Report
@@ -518,43 +554,51 @@ No file Report.toc.
 ("D:\Studium\Semester 8\Fachlabor Mechatronik\Github\MechatronicsLabTUHH-Report
 \Kapitel/Theorie.tex"
 Missing character: There is no Ã in font cmr10!
-Missing character: There is no ¼ in font cmr10!
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no „ in font cmr10!
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no – in font cmr10!
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no œ in font cmr10!
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no Ÿ in font cmr10!
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no Ÿ in font cmr10!
+Missing character: There is no ¤ in font cmr10!
+
+
+Package natbib Warning: Citation `Cazzolato.2011' on page 4 undefined on input 
+line 10.
+
+<Grafiken/furuta3.jpg, id=17, 892.08281pt x 573.64313pt>
+File: Grafiken/furuta3.jpg Graphic file (type jpg)
+
+<use Grafiken/furuta3.jpg>
+Package pdftex.def Info: Grafiken/furuta3.jpg used on input line 17.
+(pdftex.def)             Requested size: 345.0pt x 221.84676pt.
+
+
+Package natbib Warning: Citation `Cazzolato.2011' on page 4 undefined on input 
+line 18.
+
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¤ in font cmr10!
- <Grafiken/furuta.jpg, id=16, 521.95pt x 318.18875pt>
-File: Grafiken/furuta.jpg Graphic file (type jpg)
-
-<use Grafiken/furuta.jpg>
-Package pdftex.def Info: Grafiken/furuta.jpg used on input line 11.
-(pdftex.def)             Requested size: 276.00105pt x 168.25566pt.
- [4
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¤ in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¤ in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¤ in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¤ in font cmr10!
+[4
 
 
  <D:/Studium/Semester 8/Fachlabor Mechatronik/Github/MechatronicsLabTUHH-Report
-/Grafiken/furuta.jpg>]
+/Grafiken/furuta3.jpg>]
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¶ in font cmr10!
-
-Overfull \hbox (47.4009pt too wide) detected at line 182
+ [5]
+Overfull \hbox (47.4009pt too wide) detected at line 196
 [] \OT1/cmr/m/n/10 = []
  []
 
-[5]
+[6]
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¼ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¤ in font cmr10!
- [6] [7]) [8]
+ [7]) [8]
 ("D:\Studium\Semester 8\Fachlabor Mechatronik\Github\MechatronicsLabTUHH-Report
 \Kapitel/Parameter.tex") [9
 
@@ -572,6 +616,9 @@ Missing character: There is no ¤ in font cmr10!
 ]
 No file Report.bbl.
 
+Package natbib Warning: There were undefined citations.
+
+
 ("D:\Studium\Semester 8\Fachlabor Mechatronik\Github\MechatronicsLabTUHH-Report
 \Report.aux"
 ("D:\Studium\Semester 8\Fachlabor Mechatronik\Github\MechatronicsLabTUHH-Report
@@ -585,28 +632,29 @@ No file Report.bbl.
 ("D:\Studium\Semester 8\Fachlabor Mechatronik\Github\MechatronicsLabTUHH-Report
 \Kapitel/Ergebnisse.aux")) ) 
 Here is how much of TeX's memory you used:
- 11286 strings out of 493944
- 234798 string characters out of 3148229
- 246952 words of memory out of 3000000
- 14492 multiletter control sequences out of 15000+200000
- 11837 words of font info for 45 fonts, out of 3000000 for 9000
+ 11672 strings out of 493944
+ 240892 string characters out of 3148229
+ 256748 words of memory out of 3000000
+ 14845 multiletter control sequences out of 15000+200000
+ 12491 words of font info for 47 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 42i,14n,44p,10449b,492s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,14n,44p,10449b,496s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmcsc10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.p
-fb>
-Output written on Report.pdf (11 pages, 173369 bytes).
+fonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on Report.pdf (11 pages, 235316 bytes).
 PDF statistics:
- 87 PDF objects out of 1000 (max. 8388607)
+ 95 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

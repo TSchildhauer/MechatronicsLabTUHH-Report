@@ -1,6 +1,6 @@
 \contentsline {section}{\numberline {1}Einleitung}{3}
 \contentsline {section}{\numberline {2}Theorie}{4}
-\contentsline {subsection}{\numberline {2.1}Furuata Pendel}{4}
+\contentsline {subsection}{\numberline {2.1}Furuta Pendel}{4}
 \contentsline {section}{\numberline {3}Identifikation der Parameter}{9}
 \contentsline {section}{\numberline {4}Design der Controller}{10}
 \contentsline {section}{\numberline {5}Ergebnisse}{11}
