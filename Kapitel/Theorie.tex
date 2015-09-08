@@ -4,7 +4,7 @@ In diesem Abschnitt wird auf die Theorie des sogenannten \emph{Furuta Pendels} e
 
 \subsection{Furuta Pendel}
 \label{sub.Furuta-Pendel}
-Bei dem \emph{Furuta Pendel}, auch ?drehbares??? invertiertes Pendel genannt, handelt es sich um ein 1992 von Katsuhisa Furuta entwickeltes mechanisches Pendel. 
+Bei dem \emph{Furuta Pendel}, auch drehbares invertiertes Pendel genannt, handelt es sich um ein 1992 von Katsuhisa Furuta entwickeltes mechanisches Pendel. 
 Es besteht aus einem angetriebenen arm, welcher in der horizontalen Ebene rotieren kann. 
 An diesem Arm ist ein Pendelarm befestigt, welcher frei in der zum angetriebenen Arm orthogonalen Ebene rotieren kann. 
 Das Furuta Pendel ist ein Beispiel eines komplexen nichtlinearen Oszillators. \citet{Cazzolato.2011}
@@ -20,30 +20,44 @@ Das Furuta Pendel ist ein Beispiel eines komplexen nichtlinearen Oszillators. \c
 
 Abbildung~\ref{fig.furuta-schematic} zeigt das Schema eines Furuta Pendels, welches von einem DC-Elektromotor angetrieben wird.
 Mit dem Motor wird ein Drehmoment $\tau_1$ auf Arm~1 des Pendels gebracht. %??? Thomas: gebracht~
+Das Drehmoment $\tau_2$ bezeichnet das Kopplungsmoment zwischen Arm~1 und Arm~2. %Thomas: kpplung~
 Die Verbindung zwischen Arm~1 und Arm~2 rotiert frei und ist nicht angetrieben.
 Die beiden Arme haben Längen $L_1$ und $L_2$ sowie Massen $m_1$ und $m_2$.
 $l_1$ und $l_2$ bezeichnen die jeweiligen Abstände der Massenmittelpunkte zum Rotationspunkt der Arme.
 Die Arme haben Trägheitstensoren $J_1$ und $J_2$ um ihren jeweiligen Massenmittelpunkt und ihre Gelenke unterliegen linearer Dämpfung mit Dämpfungskonstanten $b_1$ und $b_2$.
 
+\subsubsection{Annahmen}
+\label{sub.sub.Annahmen}
+Vor der Aufstellung des Gleichungssystems werden in~\cite{Cazzolato.2011} einige Annahmen getroffen, die an dieser Stelle kurz wiederholt werden:
+\begin{enumerate}
+\item Die Kopplung zwischen Motorachse und Arm~1 wird als ideal starr angenommen.
+\item Die Motorachse und beide Pendelarme werden als ideal starr angenommen.
+\item Die Koordinatensysteme von Arm~1 und Arm~2 sind die Hauptachsensysteme, sodass die Trägheitstensoren diagonal sind.
+\item Die Trägheit des Motors wird vernachlässigt. %Thomas: trifft das auf uns zu????
+\item Es wird von reiner linearer (viskoser) Dämpfung ausgegangen.
+\end{enumerate}
+
 %Thomas... Torque und so weiter und energien
 %Thomas: welche der folgenden müssen nummern erhalten?
-\begin{equation}
- E_{p1} = 0
-\end{equation}
+\subsubsection{Formulierung des Problems nach Lagrange}
+\label{sub.sub.Lagrange}
+Mit den in Abschnitt~\ref{sub.sub.Annahmen} getroffenen Annahmen erhalten wir durch den Ansatz von Lagrange'schen Tensoren die nachfolgenden Formeln \cite{Cozzlato.2011}.
 
-\begin{equation}
-E_{k1}=\frac{1}{2}(v^T_{1c}m_1v_{1c}+\omega^T_1J_1\omega_1)=\frac{1}{2}\dot{\theta}^2_1(m_1l_1+J_{1zz})
-\end{equation}
+Die potentielle und die kinetische Energie von Arm~1:
 
-\begin{equation}
+\begin{equation*}
+E_{p1} = 0 \qquad E_{k1}=\frac{1}{2}(v^T_{1c}m_1v_{1c}+\omega^T_1J_1\omega_1)=\frac{1}{2}\dot{\theta}^2_1(m_1l_1+J_{1zz})
+\end{equation*}
+Die potentielle und kinetische Energie von Arm~2:
+\begin{equation*}
 E_{p2}=gm_2l_2(\cos(\theta_2)-1)
-\end{equation}
+\end{equation*}
 
-\begin{eqnarray}
+\begin{eqnarray*}
 E_{k2}&=&\frac{1}{2}(v^T_{2c}m_2v_{2c}+\omega^T_2J_2\omega_2)\nonumber \\
 &=&\frac{1}{2}\dot{\theta}^2_1(m_2L^2_2+(m_2l^2_2+J_{2yy})\sin^2(\theta_2)+J_{2xx}\cos^2(\theta_2))\nonumber \\
 &&+\frac{1}{2}\dot{\theta}^2_2(J_{2zz}+m_2l^2_2)+m_2L_1l_2\cos(\theta_2)\dot{\theta}_1\dot{\theta}_2
-\end{eqnarray}
+\end{eqnarray*}
 
 \begin{equation}
 L=E_k-E_p

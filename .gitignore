@@ -5,3 +5,5 @@
 *.gz
 *.toc
 *.dvi
+*.aux
+REPORT.pdf
