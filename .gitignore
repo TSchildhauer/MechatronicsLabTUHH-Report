@@ -1,7 +1,9 @@
-*.bbl
-*.aux
+**/*.bbl
+**/*.aux
 *.blg
 *.log
 *.gz
 *.toc
 *.dvi
+Kapitel/Controller.aux
+*.aux
