@@ -20,10 +20,22 @@ Das Furuta Pendel ist ein Beispiel eines komplexen nichtlinearen Oszillators. \c
 
 Abbildung~\ref{fig.furuta-schematic} zeigt das Schema eines Furuta Pendels, welches von einem DC-Elektromotor angetrieben wird.
 Mit dem Motor wird ein Drehmoment $\tau_1$ auf Arm~1 des Pendels gebracht. %??? Thomas: gebracht~
+Das Drehmoment $\tau_2$ bezeichnet das Kopplungsmoment zwischen Arm~1 und Arm~2. %Thomas: kpplung~
 Die Verbindung zwischen Arm~1 und Arm~2 rotiert frei und ist nicht angetrieben.
 Die beiden Arme haben Längen $L_1$ und $L_2$ sowie Massen $m_1$ und $m_2$.
 $l_1$ und $l_2$ bezeichnen die jeweiligen Abstände der Massenmittelpunkte zum Rotationspunkt der Arme.
 Die Arme haben Trägheitstensoren $J_1$ und $J_2$ um ihren jeweiligen Massenmittelpunkt und ihre Gelenke unterliegen linearer Dämpfung mit Dämpfungskonstanten $b_1$ und $b_2$.
+
+\subsubsection{Annahmen}
+\label{sub.sub.Annahmen}
+Vor der Aufstellung des Gleichungssystems werden in~\cite{Cazzolato.2011} einige Annahmen getroffen, die an dieser Stelle kurz wiederholt werden:
+\begin{list}{}{}
+\item{(i)} Die Kopplung zwischen Motorachse und Arm~1 wird als ideal starr angenommen.
+\item{(ii)} Die Motorachse und beide Pendelarme werden als ideal starr angenommen.
+\item{(iii)} Die Koordinatensysteme von Arm~1 und Arm~2 sind die Hauptachsensysteme, sodass die Trägheitstensoren diagonal sind.
+\item{(iv)} Die Trägheit des Motors wird vernachlässigt. %Thomas: trifft das auf uns zu????
+\item{(v)} Es wird von reiner linearer (viskoser) Dämpfung ausgegangen.
+\end{list}
 
 %Thomas... Torque und so weiter und energien
 %Thomas: welche der folgenden müssen nummern erhalten?
