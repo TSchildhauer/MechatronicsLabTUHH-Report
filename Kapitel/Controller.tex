@@ -1,4 +1,5 @@
 \section{Design der Controller}
+<<<<<<< HEAD
 \subsection{Pendelidentifikation}
 Beim Starten des Programmes zur Regelung des Pendels wird zunächst identifiziert, um welche Pendelaufbaus es sich handelt. Es wird dabei zwischen zwei zuvor definierten Pedenlarmlängen unterschieden.
 Für die Identifikation wird wird durch den Motor ein kurzer Impuls auf das Pendel gegeben. 
@@ -43,4 +44,106 @@ In unserem Controller wurden die Werte wie folgt gewählt:
 
 
 
+=======
+\label{sec.Controller}
+\subsection{Signalverarbeitung}
+\label{signalverarbeitung} 
+Das Ausgangssignal der Inkrementalgeber wird zunächst auf Radiant-Werte umgerechnet 
+
+\subsection{Swing-Up-Controller}
+\label{Swing-Up-Controller} 
+
+Der Swing-Up-Controller soll dem Aufschwingen des Pendels dienen und im Bereich zwischen circa $20^\circ < \left| \theta_2 \right| < 90^\circ$  und basiert auf der Lyapunov-Funktion. Diese führt dazu, dass sich bei der Wahl von
+$ \theta_2 = 0$ in der aufrechten Position des Pendels ein Regler ergibt, welche die Energie des Pendels minimiert:
+
+\begin{equation}
+U = n \cdot g \cdot sign(E-E_0)\dot{\theta}_2\cos(\theta_2)
+\end{equation}
+
+Der Term $E_0$ beschreibt die gewünschte, minimale Energie des Systems.Die Energie des Pendels $E$ setzt sich aus der potentiellen Energie $E_{pot}$ und der kinetischen Energie $E_{kin}$ zusammen. Die potentielle Energie lässt sich aufgrund der Referenz im höchsten Punkt des Pendels wie folgt berechnen:
+\begin{equation}
+E_{pot} = m_2 \cdot g \cdot l_2 \cdot (cos(\theta_2)-1)
+\end{equation}
+
+Die kinetische Energie ergibt sich zu:
+
+\begin{equation}
+E_{kin} = \frac{J_0}{2} \cdot \dot{\theta_2}^2
+\end{equation}
+
+Die Umsetzung des Reglers in Simulink ist in ABB % TODO
+
+zu sehen. 
+
+\begin{figure}[h!]
+  \caption{Swing-Up-Controller}
+  \centering
+    %\includegraphics[width=0.5\textwidth]{swing_up}
+\end{figure}
+
+
+\subsection{Zweipunktregler}
+\label{zweipunktregler} 
+
+Für den Bereich zwischen circa $20^\circ < \left| \theta_2 \right| < 90^\circ$ soll der Zweipunktregler (eng. Bang-bang control) das invertierte Pendel regeln. Dieser schaltet die maximale positive oder negative Spannung auf den Motor, abhängig von $ \theta_2 $ und $ \dot{\theta_2} $, daraus folgt  Übertragungfunktion:
+
+\begin{equation}
+U = -10 \cdot sign(\theta_2 \cdot \cos(\dot{\theta}_2))
+\end{equation}
+
+  Das entsprechende Simulink-Modell in Abb. %TODO
+zu sehen. 
+
+\begin{figure}[h!]
+  \caption{Swing-Up-Controller}
+  \centering
+   % \includegraphics[width=0.5\textwidth]{swing_up}
+\end{figure}
+
+\subsection{Catcher}
+\label{catcher} 
+
+Der Catcher dient der genaueren Regelung des Pendels nahe des oberen Equilibriums von $ \theta_2 $. Um in dem Bereich optimal und robust zu Regeln,wird ein LQ-Regler verwendet. Dieser basiert auf der Minimiering der Cost-Function, welche folgenden Form besitzt:
+
+\begin{equation}
+ V = \int_0^\infty \! (x^T(t) Qx(t) + u^t(t) R u(t))  \mathrm{d}t
+\end{equation}
+
+Erhöht man die Diagonalwerte der Q-Matrix, werden die Fehler stärker Gewichtet, allerdings steigt auch der Aufwand der Regelung. Die Matrix lässt sich über die Controllability-Matrix $C$ und den linken Eigenvektor q der Matrix $A$
+wie folgt berechnen:
+
+\begin{equation}
+ Q = C' \cdot q'^T \cdot q^T \cdot C
+\end{equation}
+
+Für den Vektor $q$ wurden folgenden Werte angenommen:
+
+\begin{equation}
+q =\begin{bmatrix}
+         180/\pi/180 \\
+         0\\
+         0\\
+         180/\pi/0.1
+        \end{bmatrix}
+\end{equation}
+ 
+Die Diagonalwerte der Matrix R der Cost-Funktion beeinflussen die Geschwindigkeit der Regelung und wurden zunächst für den Catcher auf eins gesetz.
+Zusammen mit den Eingangs- und Ausgangsmatritzen A und B lässt sich mithilfe des Matlab-Befehls $F = -lqr(A,B,Q,R)$ der LQR-Controller generieren.
+Das Simulink-Modell ist in Abb zu sehen.
+
+
+\subsection{Stabilizer}
+\label{stabilizer} 
+
+Zur Rückführung des Pendels auf die Ausgangswinkel von $\theta_1$ und Beibehaltung der oberen Equilibrium-Position wird auch eine LQ-Regelung verwendet, welche sich nur durch die dreifache Einheitsmatrix für R und folgenden q-Vektor von dem Catcher unterscheidet:
+
+\begin{equation}
+q =\begin{bmatrix}
+         180/\pi/1 \\
+         0\\
+         0\\
+         180/\pi/0.1
+        \end{bmatrix}
+\end{equation}
+>>>>>>> master
 
