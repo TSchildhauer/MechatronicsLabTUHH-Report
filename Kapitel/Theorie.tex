@@ -9,15 +9,11 @@ Es besteht aus einem angetriebenen Arm, welcher in der horizontalen Ebene rotier
 An diesem Arm ist ein Pendelarm befestigt, welcher frei in der zum angetriebenen Arm orthogonalen Ebene rotiert. 
 Das Furuta Pendel ist ein Beispiel eines komplexen nichtlinearen Oszillators. \cite{Cazzolato.2011}
 
-%Thomas: Zusätzlich hier eine Foto des pendels einbinden?
-%Dustin: Lieber in der Einleitung!! Damit du das auch liest:
-\colorbox{yellow}{Antwort auf deine Frage: Lieber in der Einleitung!}
-
 \begin{figure}[htbp]
-	\label{fig.furuta-schematic}
 	\centering
 	\includegraphics[width=1.\textwidth]{Grafiken/furuta3.jpg}
 	\caption{Schema des Furuta Pendels nach~\cite{Cazzolato.2011}. }
+	\label{fig.furuta-schematic}
 \end{figure}
 
 Abbildung~\ref{fig.furuta-schematic} zeigt das Schema eines Furuta Pendels, welches von einem DC-Elektromotor angetrieben wird.
@@ -265,6 +261,12 @@ B_{42} &=& \frac{\hat{J}_0}{(\hat{J}_0\hat{J}_2-m^2_2L^2_1l^2_2)}	\nonumber \\
 %\begin{equation}
 %\tau=K_mi
 %\end{equation}
+%Thomas: Das ist hier nicht an der richtigen Stelle
+\subsection{Herleitung der Modellparameter}
+\label{sub.HerleitungParameter}
+Das mathematische Modell, wie es in Abschnitt~\ref{sub.sub.Mathematisches-Modell} beschrieben ist, wird als Simulink-Modell realisiert.
+Es dient als State-Estimator für den Controller, der in Abschnitt~\ref{sec.Controller} beschrieben wird.
+Das Furuta-Pendel, welches uns im Labor zur Verfügung gestellt wird, muss nun auf die Form des mathematischen Modells gebracht werden.
 Herleitung der Parameter (1 zu 1 aus dem Dokument übernommen.. die Herangehensweise muss also noch verändert werden!):
 \begin{eqnarray}
 L_1 &=& l_a \nonumber \\
