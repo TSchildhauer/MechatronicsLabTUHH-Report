@@ -21,8 +21,8 @@ Das Furuta Pendel ist ein Beispiel eines komplexen nichtlinearen Oszillators. \c
 \end{figure}
 
 Abbildung~\ref{fig.furuta-schematic} zeigt das Schema eines Furuta Pendels, welches von einem DC-Elektromotor angetrieben wird.
-Mit dem Motor wird ein Drehmoment $\tau_1$ auf Arm~1 des Pendels gebracht. 
-Das Drehmoment $\tau_2$ bezeichnet das Kopplungsmoment zwischen Arm~1 und Arm~2. 
+Mit dem Motor wird ein Drehmoment $\tau_1$ auf Arm~1 des Pendels gebracht. %??? Thomas: gebracht~
+Das Drehmoment $\tau_2$ bezeichnet das Kopplungsmoment zwischen Arm~1 und Arm~2. %Thomas: kpplung~
 Die Verbindung zwischen Arm~1 und Arm~2 rotiert frei und ist nicht angetrieben.
 Die beiden Arme haben die Längen $L_1$ und $L_2$ sowie die Massen $m_1$ und $m_2$.
 $l_1$ und $l_2$ bezeichnen die jeweiligen Abstände der Massenmittelpunkte zum Rotationspunkt der Arme.
@@ -39,18 +39,13 @@ Vor der Aufstellung des Gleichungssystems werden in~\cite{Cazzolato.2011} einige
 \item Es wird von reiner linearer (viskoser) Dämpfung ausgegangen.
 \end{enumerate}
 
-Aus den obigen Annahmen können unter Anderem die Trägheitstensoren der beiden Pendelarme vereinfacht werden, mit der Annahme $J_{xx} \approx 0$. 
-Das führt zu folgender Formel für $J_{1,2}$:
-
-
 \subsubsection{Mathematisches Modell}
 \label{sub.sub.Mathematisches-Modell}
-Mit den in Abschnitt~\ref{sub.sub.Annahmen} getroffenen Annahmen wird in~\cite{Cazzolato.2011} ein mathematisches Modell entwickelt mit dem die Winkelbeschleunigung der beiden Pendelarme in Abhängigkeit der Zustands\-varibalen beschrieben werden kann. 
-Zunächst wird die Gleichung für die beiden Drehmomente $\tau_1$ und $\tau_2$ in Abhängigkeit der Trägheitstensoren $J_1$ und $J_2$ aufgestellt.
-(Für nähre Ausführungen sei auf~\cite{Cazzolato.2011} verwiesen.)
+Mit den in Abschnitt~\ref{sub.sub.Annahmen} getroffenen Annahmen wird in~\cite{Cozzlato.2011} ein mathematisches Modell entwickelt mit dem die Winkelbeschleunigung der beiden Pendelarme in Abhängigkeit der Zustands\-varibalen beschrieben werden kann. 
+Zunächst wird die Gleichung für die beiden Drehmomente $\tau_1$ und $\tau_2$ aufgestellt:
+(Für nähre Ausführungen sei auf~\cite{Cozzlato.2011} verwiesen.)
 
 \begin{equation}
-\label{eqn.TauComplex}
 \begin{bmatrix}
 \tau_1 \\
 \tau_2
@@ -72,9 +67,7 @@ Zunächst wird die Gleichung für die beiden Drehmomente $\tau_1$ und $\tau_2$ i
 \end{bmatrix}
 \end{equation}
 
-Die Trägheitstensoren der beiden Pendelarme können nun unter den Annahmen $J_{xx} \approx 0$ und $J_{yy} \approx J_{zz}$ wie folgt vereinfacht werden: 
 \begin{eqnarray}
-\label{eqn.Tragheitstensoren}
 J_1=
 \begin{bmatrix}
 J_{1xx} & 0 & 0\\
@@ -84,8 +77,8 @@ J_{1xx} & 0 & 0\\
 \approx
 \begin{bmatrix}
 0 & 0 & 0\\
-0 & \bar{J}_{1} & 0\\
-0 & 0 & \bar{J}_{1}
+0 & J_{1} & 0\\
+0 & 0 & J_{1}
 \end{bmatrix}
 \nonumber \\
 J_2=
@@ -97,19 +90,17 @@ J_{2xx} & 0 & 0\\
 \approx
 \begin{bmatrix}
 0 & 0 & 0\\
-0 & \bar{J}_{2} & 0\\
-0 & 0 & \bar{J}_{2}
+0 & J_{2} & 0\\
+0 & 0 & J_{2}
 \end{bmatrix}
 \end{eqnarray}
 
-Folgende Bezeichnungen werden zur Vereinfachung von Gleichung~\ref{eqn.TauComplex} eingeführt.
 \begin{eqnarray}
-\hat{J}_1 &=& \bar{J}_1 + m_1l^2_1	\nonumber	\\
-\hat{J}_2 &=& \bar{J}_2 + m_2l^2_2	\nonumber	\\
-\hat{J}_0 &=& \bar{J}_1 + m_1l^2_1 + m_2L^2_1
+\hat{J}_1 &=& J_1 + m_1l^2_1	\nonumber	\\
+\hat{J}_2 &=& J_2 + m_2l^2_2	\nonumber	\\
+\hat{J}_0 &=& J_1 + m_1l^2_1 + m_2L^2_1
 \end{eqnarray}
 
-So lassen sich die Formeln für die beiden Drehmomente $\tau_1$ und $\tau_2$ darstellen als:
 \begin{equation}
 \begin{bmatrix}
 \tau_1 \\
@@ -128,9 +119,6 @@ So lassen sich die Formeln für die beiden Drehmomente $\tau_1$ und $\tau_2$ dar
 \end{pmatrix}
 \end{bmatrix}
 \end{equation}
-
-Hieraus ergeben sich die folgenden nichtlinearen Differentialgleichungen für die Bewegung des Pendels. 
-In~\cite{Cazzolato.2011} wird bei der Aufstellung dieser ein Vorzeichenfehler gemacht, der an dieser Stelle korrigiert ist und auf den nicht näher eingegangen wird.
 
 
 \colorbox{yellow}{Die folgenden Gleichungen enthalten noch den Fehler, den wir finden sollten.} \\
@@ -200,11 +188,11 @@ g
 {\hat{J}_0\hat{J}_2+\hat{J}^2_2\sin^2(\theta_2)-m^2_2L^2_1l^2_2\cos^2(\theta_2)}
 \end{equation}
 
-Diese entsprechen den Gleichungen~(33) und~(34) in~\cite{Cazzolato.2011}
+Diese entsprechen den Gleichungen~(33) und~(34) in~\cite{Cozzlato.2011}
 
 \subsubsection{Linearisierung}
 \label{sub.sub.Linearisierung}
-Die korrigierten nichtlinearen Differentialgleichungen aus Abschnitt~\ref{sub.sub.Mathematisches-Modell} werden in diesem Abschnitt nach dem Vorbild von~\cite{Cazzolato.2011} für den Stabilen unteren Gleichgewichtszustand (Index~1) und den grenz\-stabilen oberen Gleichgewichtszustand (Index~2) linearisiert.
+Die korrigierten nichtlinearen Differentialgleichungen aus Abschnitt~\ref{sub.sub.Mathematisches-Modell} werden in diesem Abschnitt nach dem Vorbild von~\cite{Cozzlato.2011} für den Stabilen unteren Gleichgewichtszustand (Index~1) und den grenz\-stabilen oberen Gleichgewichtszustand (Index~2) linearisiert.
 
 Zustandsvariablen in den Gleichgewichtszuständen:
 \begin{eqnarray}
@@ -262,9 +250,9 @@ B_{32} &=& \frac{m_2L_1l_2}{(\hat{J}_0\hat{J}_2-m^2_2L^2_1l^2_2)}	\nonumber \\
 B_{42} &=& \frac{\hat{J}_0}{(\hat{J}_0\hat{J}_2-m^2_2L^2_1l^2_2)}	\nonumber \\
 \end{eqnarray}
 
-%\begin{equation}
-%\tau=K_mi
-%\end{equation}
+\begin{equation}
+\tau=K_mi
+\end{equation}
 Herleitung der Parameter (1 zu 1 aus dem Dokument übernommen.. die Herangehensweise muss also noch verändert werden!):
 \begin{eqnarray}
 L_1 &=& l_a \nonumber \\
