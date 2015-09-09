@@ -1,8 +1,7 @@
 \section{Design der Controller}
 \subsection{Pendelidentifikation}
 \label{Pendelidentifikation}
-Beim Starten des Programmes zur Regelung des Pendels wird zunächst identifiziert, um welchen Pendelaufbau es sich handelt. Es wird dabei zwischen zwei zuvor definierten Pendelarmlängen unterschieden.
-
+Beim Starten des Programmes zur Regelung des Pendels wird zunächst identifiziert, um welchen Pendelaufbau es sich handelt. Es wird dabei zwischen zwei zuvor definierten Pedenlarmlängen unterschieden.
 Für die Identifikation wird wird durch den Motor ein kurzer Impuls auf das Pendel gegeben. Nach diesem Impuls wird das Pendel schwingen gelassen, während der Controller den Verlauf von~$\theta_2$ aufzeichnet. Im Anschluss daran ist es möglich, aus den erhobenen Daten die Frequenz von~$\theta_2$ zu berechnen. Da sich die Frequenzen der Pendelkonfogurationen unterscheiden, kann das Programm so die entsprechenden Modelldaten laden und für die Regelung verwenden. In Abbildung \ref{fig.Identifikation} ist dieser Vorgang in den ersten fünf Sekunden zu erkennen.
 
 \begin{figure}[htbp]
@@ -116,7 +115,7 @@ q =\begin{bmatrix}
         \end{bmatrix}
 \end{equation}
 
-Der Observer des Stabilizers ist in Abb. \ref{fig.obs_catcher} abgebildet, Abb. \ref{fig.top_equilibrium} bietet einen Überblick über die Verschaltung des Catchers und Stabilizers.
+Der Observer des Stabilizers ist in Abb. \ref{fig.obs_stabilizer} abgebildet, Abb. \ref{fig.top_equilibrium} bietet einen Überblick über die Verschaltung des Catchers und Stabilizers.
 
 \begin{figure}[htbp]
 	\centering	
@@ -125,7 +124,7 @@ Der Observer des Stabilizers ist in Abb. \ref{fig.obs_catcher} abgebildet, Abb. 
 	\label{fig.obs_stabilizer}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[h!]
 	\centering	
 	\includegraphics[width=1\textwidth]{Grafiken/simulink_top_equilibrium.png}
 	\caption{Aufbau des Catchers und Stabilizers in Simulink}
