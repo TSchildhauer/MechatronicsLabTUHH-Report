@@ -120,9 +120,6 @@ J_{2xx} & 0 & 0\\
 \end{bmatrix}
 \end{equation}
 
-Hieraus ergeben sich die folgenden nichtlinearen Differentialgleichungen für die Bewegung des Pendels. 
-In~\cite{Cozzlato.2011} wird bei der Aufstellung dieser ein Vorzeichenfehler gemacht, der an dieser Stelle korrigiert ist und auf den nicht näher eingegangen wird.
-
 
 \colorbox{yellow}{Die folgenden Gleichungen enthalten noch den Fehler, den wir finden sollten.} \\
 \colorbox{yellow}{Ich habe die Lösung gerade nicht parat.Thomas: ich auch noch nicht}
