@@ -1,19 +1,15 @@
 \section{Design der Controller}
 \subsection{Pendelidentifikation}
 \label{Pendelidentifikation}
-Beim Starten des Programmes zur Regelung des Pendels wird zunächst identifiziert, um welchen Pendelaufbau es sich handelt. Es wird dabei zwischen zwei zuvor definierten Pendelarmlängen unterschieden.
-
+Beim Starten des Programmes zur Regelung des Pendels wird zunächst identifiziert, um welchen Pendelaufbau es sich handelt. Es wird dabei zwischen zwei zuvor definierten Pedenlarmlängen unterschieden.
 Für die Identifikation wird wird durch den Motor ein kurzer Impuls auf das Pendel gegeben. Nach diesem Impuls wird das Pendel schwingen gelassen, während der Controller den Verlauf von~$\theta_2$ aufzeichnet. Im Anschluss daran ist es möglich, aus den erhobenen Daten die Frequenz von~$\theta_2$ zu berechnen. Da sich die Frequenzen der Pendelkonfogurationen unterscheiden, kann das Programm so die entsprechenden Modelldaten laden und für die Regelung verwenden. In Abbildung \ref{fig.Identifikation} ist dieser Vorgang in den ersten fünf Sekunden zu erkennen.
 
 \begin{figure}[htbp]
 	\centering	
-	\label{fig.Identifikation}
 	\includegraphics[width=0.8\textwidth]{Grafiken/Swingup_kurz.png}
 	\caption{Initiale Pendelidentifkation}
+	\label{fig.Identifikation}
 \end{figure}
-\colorbox{yellow}{Irgendwas stimmt mit der Referenzierung auf diese Abbildung nicht. Was habe ich falsch gemacht?} \\
-\colorbox{yellow}{Wobei ich gerade sehe, dass das bei Thomas oben ebenfalls nicht geklappt hat}
-
 
 
 \label{sec.Controller}
@@ -46,9 +42,9 @@ Die Umsetzung des Reglers in Simulink ist in Abbildung \ref{fig.Simu_Swing-Up} z
 
 \begin{figure}[h!]
   \centering	
-	\label{fig.Simu_Swing-Up}
-   \includegraphics[width=1\textwidth]{Grafiken/simulink_swingup.png}
+  	\includegraphics[width=1\textwidth]{Grafiken/simulink_swingup.png}
       \caption{Swing-Up-Controller und Zweipunktregler}
+	\label{fig.Simu_Swing-Up}
 \end{figure}
 
 
@@ -61,14 +57,9 @@ Für den Bereich zwischen circa $\left| \theta_2 \right| \geq 90^\circ$ soll der
 U = 10 \cdot sign(U_{SU} \cdot \theta_2 \cdot \cos(\dot{\theta}_2))
 \end{equation}
 
-Das entsprechende Simulink-Modell in Abb. \ref{fig.Simu_Swing-Up}
-zu sehen. 
+\colorbox{yellow}{Das entsprechende Simulink-Modell in Abb. \ref{fig.Simu_Swing-Up}
+zu sehen.}
 
-\begin{figure}[h!]
-  \caption{Swing-Up-Controller}
-  \centering
-   % \includegraphics[width=0.5\textwidth]{swing_up}
-\end{figure}
 
 \subsection{Catcher}
 \label{catcher} 
@@ -105,9 +96,9 @@ Das Simulink-Modell des Observers ist in Abb. \ref{fig.obs_catcher} zu sehen.
 
 \begin{figure}[htbp]
 	\centering	
-	\label{fig.obs_catcher}
 	\includegraphics[width=0.8\textwidth]{Grafiken/simulink_observer_catcher.png}
 	\caption{Observer des Catchers in Simulink}
+	\label{fig.obs_catcher}
 \end{figure}
 
 \subsection{Stabilizer}
@@ -124,20 +115,20 @@ q =\begin{bmatrix}
         \end{bmatrix}
 \end{equation}
 
-Der Observer des Stabilizers ist in Abb. \ref{fig.obs_catcher} abgebildet, Abb. \ref{fig.top_equilibrium} bietet einen Überblick über die Verschaltung des Catchers und Stabilizers.
+Der Observer des Stabilizers ist in Abb. \ref{fig.obs_stabilizer} abgebildet, Abb. \ref{fig.top_equilibrium} bietet einen Überblick über die Verschaltung des Catchers und Stabilizers.
 
 \begin{figure}[htbp]
 	\centering	
-	\label{fig.obs_stabilizer}
 	\includegraphics[width=1\textwidth]{Grafiken/simulink_observer_stabilizer.png}
 	\caption{Simulink-Block des Observers des Stabilizers}
+	\label{fig.obs_stabilizer}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[h!]
 	\centering	
-	\label{fig.top_equilibrium}
 	\includegraphics[width=1\textwidth]{Grafiken/simulink_top_equilibrium.png}
 	\caption{Aufbau des Catchers und Stabilizers in Simulink}
+	\label{fig.top_equilibrium}
 \end{figure}
 
 \subsection{Soft-Switch}
@@ -148,9 +139,9 @@ Ziel dieses Switches ist es, extreme Sprünge des Controllerausgangssignals beim
 
 \begin{figure}[htbp]
 	\centering	
-	\label{fig.Soft-Switch}
 	\includegraphics[width=0.8\textwidth]{Grafiken/SoftSwitch.png}
 	\caption{Soft-Switch}
+	\label{fig.Soft-Switch}
 \end{figure}
 
 Die Umsetzung erfolgt, indem die einzelnen Regelsignale mit Verstärkungsfaktoren multipliziert werden, die in der Summe genau 1 ergeben, und sich das Gesamtsignal aus den gewichteten Einzelsignalen zusammensetzt.
@@ -172,13 +163,14 @@ In unserem Controller wurden die Werte wie folgt gewählt:
 
 \begin{figure}[htbp]
 	\centering	
-	\label{fig.Simu_Soft-Switch}
 	\includegraphics[width=0.8\textwidth]{Grafiken/simulink_softswitch.png}
 	\caption{Soft-Switch}
+	\label{fig.Simu_Soft-Switch}
 \end{figure}
 
-Die Abbildung \ref{fig.Simu_Soft-Switch} zeigt die Umsetzung dieses Soft-Switches in Simulink. Der Block `ramp' erzeugt dabei den Faktor $f_s$ woraus sich ebenfalls $f_c$ ableiten lässt. \\
-\colorbox{yellow}{Integratoren als Timer erwähnen?}
+Die Abbildung \ref{fig.Simu_Soft-Switch} zeigt die Umsetzung dieses Soft-Switches in Simulink. Der Block `ramp' erzeugt dabei den Faktor $f_s$ woraus sich ebenfalls $f_c$ ableiten lässt.
+
+Als Timer, wie sie innerhalb des `ramp' - Blocks zu finden sind, werden grundsätzlich Integrator-Blöcke verwendet. Schließt man am Eingang eines solchen Integrators eine Konstante $1$ an, so ist der Wert des Ausgangs die Zeit seit dem letzten Reset.\\
 
 \textit{Hinweis:} Die Funktionsweise dieses Verfahrens ist dabei identisch mit der eines Crossfaders, wie er teilweise beim Übergang zwischen zwei Musikstücken verwendet wird.
 
