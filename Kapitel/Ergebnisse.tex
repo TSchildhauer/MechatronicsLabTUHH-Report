@@ -1,5 +1,44 @@
 \section{Ergebnisse}
-In diesem Kapitel sind Versuchsergebnisse dargestellt, die an dem geregelten Pendel gewonnen wurden. Dafür wurde, das stabilisierte Pendel mit einem kurzen Störimpuls beaufschlagt und die Reaktion aufgezeichnet. Dieser Störimpuls erfolgte per Hand und wurde in unterschiedlichen Stärken durchgeführt, um so die einzelnen Controller testen zu können. 
+In diesem Kapitel sind Versuchsergebnisse dargestellt, die an dem geregelten Pendel gewonnen wurden. Dafür wurde das stabilisierte Pendel mit einem kurzen Störimpuls beaufschlagt und die Reaktion aufgezeichnet. Dieser Störimpuls erfolgte per Hand und wurde in unterschiedlichen Stärken durchgeführt, um so die einzelnen Controller testen zu können. 
 \subsection{Swing-Up}
+Zunächst soll anhand von Abbildung \ref{fig.Swing-Up-Plot} der Aufschwing-Vorgang betrachtet werden. Wie bereits in Kapitel \ref{Pendelidentifikation} erwähnt, vollzieht der Controller in den ersten 5 Sekunden die Identifikation des Pendels. Der dafür verwendete Impuls lässt sich bei $\theta_1$ nahe $t=0s$ erkennen. Nach diesen 5 Sekunden beginnt der Controller zunächst durch Verwendung des Zweipunktreglers und des Swing-Ups den Pendelarm in den Bereich $\left| \theta_2 \right| < 20^\circ$ zu bewegen, in welchem dann der Catcher aktiv wird um ein Überschwingen zu verhindern. Nach einer kurzer Zeit, in der gilt $\left| \theta_2 \right| < 5^\circ$, übernimmt dann der Stabilizer mehr und mehr die Kontrolle (vgl. Kapitel \ref{Softswitch}), welcher schließlich auch $\theta_1$ auf seinen Anfangswinkel regelt.
+\begin{figure}[htbp]
+	\label{fig.Swing-Up-Plot}
+	\centering
+	\includegraphics[width=1.\textwidth]{Grafiken/Swingup_kurz.png}
+	\caption{Der Swing-Up-Vorgang}
+\end{figure}
+
+
 \subsection{Stabilisierer}
+
+Der Stabilisierer wird in Abb. \ref{fig.Stabilisierer-Plot} durch eine schwachen Impuls getestet, wodurch $\theta_2$ um 2 Grad ausgelenkt wurde. Dadurch bleib der Stabilizer weiterhin aktiv und regelt die Motorspannung so, dass über das Überschwingen von $ \theta_1$ das Pendel wieder in die obere Position gebracht wird. Zudem ist auch zu erkennen, dass der Regler auch $ \theta_1$ in die Ausgangsposition zurückführt.
+
+\begin{figure}[htbp]
+	\label{fig.Stabilisierer-Plot}
+	\centering
+	\includegraphics[width=1.\textwidth]{Grafiken/Stab_lang.png}
+	\caption{Störung \textless $5^{\circ}$}
+\end{figure}
+
+
 \subsection{Catcher}
+In Abb. \ref{fig.Catcher-Plot} sind die Auswirkungen des Reglers nach einer Störung von -8 Grad zu erkennen. Der Catcher sorgt dabei zunächst für ein schnelles Rückstellen des Pendels auf das Top Equilibrium, während nach der 3. Sekunde der Einfluss des Stabilizers steigt und dieser im Mittel $\theta_1$ gegen 0 Grad regelt, allerdings mit starken Schwingungen, um die Abweichung von $\theta_2$ auszugleichen. 
+\begin{figure}[htbp]
+	\label{fig.Catcher-Plot}
+	\centering
+	\includegraphics[width=1.\textwidth]{Grafiken/Catch_kurz.png}
+	\caption{Störung \textgreater $5^{\circ}$}
+\end{figure}
+
+\subsection{Watchdog}
+\colorbox{yellow}{Hier habe ich echt wenig Ahnung von!}
+\begin{figure}[htbp]
+	\label{fig.Watchdog-Plot}
+	\centering
+	\includegraphics[width=1.\textwidth]{Grafiken/Watchdog_lang.png}
+	\caption{Watchdog}
+
+\end{figure}
+
+
