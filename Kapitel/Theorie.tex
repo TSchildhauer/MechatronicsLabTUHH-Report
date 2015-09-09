@@ -5,9 +5,9 @@ In diesem Abschnitt wird auf die Theorie des sogenannten \emph{Furuta Pendels} e
 \subsection{Furuta Pendel}
 \label{sub.Furuta-Pendel}
 Bei dem \emph{Furuta Pendel}, auch drehbares invertiertes Pendel genannt, handelt es sich um ein 1992 von Katsuhisa Furuta entwickeltes mechanisches Pendel. 
-Es besteht aus einem angetriebenen arm, welcher in der horizontalen Ebene rotieren kann. 
-An diesem Arm ist ein Pendelarm befestigt, welcher frei in der zum angetriebenen Arm orthogonalen Ebene rotieren kann. 
-Das Furuta Pendel ist ein Beispiel eines komplexen nichtlinearen Oszillators. \citet{Cazzolato.2011}
+Es besteht aus einem angetriebenen Arm, welcher in der horizontalen Ebene rotieren kann. 
+An diesem Arm ist ein Pendelarm befestigt, welcher frei in der zum angetriebenen Arm orthogonalen Ebene rotiert. 
+Das Furuta Pendel ist ein Beispiel eines komplexen nichtlinearen Oszillators. \cite{Cazzolato.2011}
 
 %Thomas: Zusätzlich hier eine Foto des pendels einbinden?
 %Dustin: Lieber in der Einleitung!! Damit du das auch liest:
@@ -24,9 +24,9 @@ Abbildung~\ref{fig.furuta-schematic} zeigt das Schema eines Furuta Pendels, welc
 Mit dem Motor wird ein Drehmoment $\tau_1$ auf Arm~1 des Pendels gebracht. %??? Thomas: gebracht~
 Das Drehmoment $\tau_2$ bezeichnet das Kopplungsmoment zwischen Arm~1 und Arm~2. %Thomas: kpplung~
 Die Verbindung zwischen Arm~1 und Arm~2 rotiert frei und ist nicht angetrieben.
-Die beiden Arme haben Längen $L_1$ und $L_2$ sowie Massen $m_1$ und $m_2$.
+Die beiden Arme haben die Längen $L_1$ und $L_2$ sowie die Massen $m_1$ und $m_2$.
 $l_1$ und $l_2$ bezeichnen die jeweiligen Abstände der Massenmittelpunkte zum Rotationspunkt der Arme.
-Die Arme haben Trägheitstensoren $J_1$ und $J_2$ um ihren jeweiligen Massenmittelpunkt und ihre Gelenke unterliegen linearer Dämpfung mit Dämpfungskonstanten $b_1$ und $b_2$.
+Die Arme besitzen die Trägheitstensoren $J_1$ und $J_2$ um ihren jeweiligen Massenmittelpunkt und ihre Gelenke unterliegen linearer Dämpfung mit den Dämpfungskonstanten $b_1$ und $b_2$.
 
 \subsubsection{Annahmen}
 \label{sub.sub.Annahmen}
@@ -43,7 +43,7 @@ Vor der Aufstellung des Gleichungssystems werden in~\cite{Cazzolato.2011} einige
 %Thomas: welche der folgenden müssen nummern erhalten?
 \subsubsection{Formulierung des Problems nach Lagrange}
 \label{sub.sub.Lagrange}
-Mit den in Abschnitt~\ref{sub.sub.Annahmen} getroffenen Annahmen erhalten wir durch den Ansatz von Lagrange'schen Tensoren die nachfolgenden Formeln \cite{Cozzlato.2011}.
+Mit den in Abschnitt~\ref{sub.sub.Annahmen} getroffenen Annahmen erhalten wir durch den Ansatz von Lagrange'schen Tensoren die nachfolgenden Formeln \cite{Cazzolato.2011}.
 
 Die potentielle und die kinetische Energie von Arm~1:
 
@@ -187,7 +187,7 @@ g
 m_2L_1l_2\cos(\theta_2)b_1 \\ 
 -b_2(\hat{J}_0+\hat{J}_2\sin^2(\theta_2)) \\ 
 m_2L_1l_2\hat{J}_2\cos(\theta_2)\sin(2\theta_2) \\ 
--\frac{1}{2}\sin(2\theta_2)(\hat{J}_0\hat{J}_2+\hat{J}^2_2\sin^2(\theta_2)) \\ 
+\frac{1}{2}\sin(2\theta_2)(\hat{J}_0\hat{J}_2+\hat{J}^2_2\sin^2(\theta_2)) \\ 
 -\frac{1}{2}m^2_2L^2_1l^2_2\sin(2\theta_2)
 \end{bmatrix}
 \begin{bmatrix}
