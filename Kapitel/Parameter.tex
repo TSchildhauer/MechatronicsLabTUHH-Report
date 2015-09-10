@@ -1,4 +1,5 @@
 \section{Identifikation der Parameter}
+\label{sec.Parameter}
 Das im Theorieteil betrachtete Modell des Furuta-Pendels (siehe \citep{Cazzolato.2011}) unterscheidet sich von dem Modell des zu verwendenden Furuta-Pendels des Institutes, wie in Abb. %TODO 
 ersichtlich.
 Die gegeben bzw. gemessenen Parameter müssen daher an das theoretische Modell angepasst werden. Für die Längen der Pendelarme gilt somit:
@@ -53,40 +54,41 @@ J_{arm}+J_{pend1}+J_{sens}=m_1l^2_1J_{pm}+J_{ps}=m_2l^2_2
 \end{equation}
 
 %Hier sind unsere werte! noch viele Latex-Fehler!
-
-\begin{eqnarray}
-b1=1e-4 \\
-b2=2.8e-4 \\
-g=9.81\\
-k_{1,phi}=0.5\\
-R_a=10\\
-J_M = 6.75e-6  \\        % Inertia Motor 6.75e-6
-J_{Enc1} = 6e-14 \\        % Inertia Encoder Theta1
-J_{Enc2} = 0.1e-6  \\     % Inertia Encoder Theta2
-J_{m,b} = 3.98125e-6 \\     % Inertia m_b
-m_{sens} = 0.084  \\
-l_c = 0.01 \\
-m_{horzArm}=0.284 \\
-m_b=0.025 \\
-m_a=.190 \\
-r_a=.015 \\
-r_b=\dfrac{0.0352}{2}\\
-l_r=0.29\\
-m_r = m_{horzArm} - m_{sens}\\
-l_a=.175\\
-l_b=.01\\
-m_{pm}=0.0379\\
-m_p=0.0157\\
-l_{pm}=0.229\\
-l_p=0.262\\
-\end{eqnarray}
+% Thomas: ich schreib hier mal einen Absatz.
+Die folgenden Werte sind im Zuge des Labors zu Verfügung gestellt oder durch rudimentäre Messungen erhalten und werden an dieser Stelle der Vollständigkeit halber aufgeführt. 
+\begin{align*}
+b1 &= \SI{1e-4}{\newton\metre\second} &
+b2 &= \SI{2.8e-4}{\newton\metre\second} \\
+g &= \SI{9.81}{\metre\per\square\second} &
+k_{1,phi} &= \SI{0.5}{}\\
+R_a &= \SI{10}{\ohm} &
+J_M  &=  \SI{6.75e-6}{\kilo\gram\square\metre}  \\        % Inertia Motor 6.75e-6
+J_{Enc1}  &=  \SI{6e-14}{\kilo\gram\square\metre}  &        % Inertia Encoder Theta1
+J_{Enc2}  &=  \SI{0.1e-6}{\kilo\gram\square\metre}  \\     % Inertia Encoder Theta2
+J_{m,b}  &=  \SI{3.98125e-6}{\kilo\gram\square\metre}  &     % Inertia m_b
+m_{sens}  &=  \SI{0.084}{\kilo\gram}  \\
+l_c  &=  \SI{0.01}{\metre}  &
+m_{horzArm} &= \SI{0.284}{\metre} \\
+m_b &= \SI{0.025}{\metre}  &
+m_a &= \SI{0.190}{\metre} \\
+r_a &= \SI{0.015}{\metre}  &
+r_b &= \SI{0.0176}{\metre} \\
+l_r &= \SI{0.29}{\metre} &
+m_r  &=  m_{horzArm} - m_{sens}\\
+l_a &= \SI{.175}{\metre} &
+l_b &= \SI{.01}{\metre}\\
+m_{pm} &= \SI{0.0379}{\kilo\gram} &
+m_p &= \SI{0.0157}{\kilo\gram}\\
+l_{pm} &= \SI{0.229}{\metre} &
+l_p &= \SI{0.262}{\metre}\\
+\end{align*}
 
 
 Die Gleichung des DC-Motors, der den Pendelarm und somit direkt $\theta_2$ antreibt, kann aus der gegebenen Formel des Research Articles der University of Adelaide, abgeleitet werden.\cite{Cazzolato.2011}
 Auch die Parameter des DC-Motors wurden aus dem Dokument entnommen. Folgende Parameter sind gegeben:
 
-\begin{eqnarray}
-K_m &=& 0,09  \dfrac{Nm}{A} \\
-R_m &=& 7,8  \Omega \\
-L_m &=& 0,005  H \\
-\end{eqnarray}
+\begin{align}
+K_m &= 0,09  \dfrac{Nm}{A} \\
+R_m &= 7,8  \Omega \\
+L_m &= 0,005  H \\
+\end{align}
