@@ -3,7 +3,7 @@
 \subsection{Pendelidentifikation}
 \label{Pendelidentifikation}
 Beim Starten des Programmes zur Regelung des Pendels wird zunächst identifiziert, um welchen Pendelaufbau es sich handelt. Es wird dabei zwischen zwei zuvor definierten Pendelkonfigurationen unterschieden.
-Für die Identifikation wird, nach einem kurzen Impuls durch den Motor, das Pendel frei schwingen gelassen, während der Controller den Verlauf von~$\theta_2$ aufzeichnet. Im Anschluss daran ist es möglich, aus den erhobenen Daten die Periodendauer von~$\theta_2$ zu berechnen. Da sich die Frequenzen der Pendelkonfigurationen unterscheiden, kann das Programm so die entsprechenden Modelldaten laden und für die Regelung verwenden. In Abbildung \ref{fig.Identifikation} ist dieser Vorgang in den ersten fünf Sekunden zu erkennen.
+Für die Identifikation wird, nach einem kurzen Impuls durch den Motor, das Pendel frei schwingen gelassen, während der Controller den Verlauf von~$\theta_2$ aufzeichnet. Im Anschluss daran ist es möglich, aus den erhobenen Daten die Periodendauer von~$\theta_2$ zu berechnen. Da sich die Periodendauern der Pendelkonfigurationen unterscheiden, kann das Programm so die entsprechenden Modelldaten laden und für die Regelung verwenden. In Abbildung \ref{fig.Identifikation} ist dieser Vorgang in den ersten fünf Sekunden zu erkennen.
 
 \begin{figure}[htbp]
 	\centering	
@@ -27,7 +27,7 @@ tmp = sort([IMAX; IMIN]);
 \end{lstlisting}
 \vspace{1em}
 
-Anschließend werden wird der Mittelwert der zeitlichen Abstände zwischen den Extrema berechnet. Da sich sowohl die Werte für Maxima als auch für Minima  in `tmp' befinden, wird der gefundene Mittelwert noch verdoppelt und entsprechend skaliert, um die Periodendauer in Sekunden zu erhalten: \\
+Anschließend wird der Mittelwert der zeitlichen Abstände zwischen den Extrema berechnet. Da sich sowohl die Werte für Maxima als auch für Minima  in ``tmp'' befinden, wird der gefundene Mittelwert noch verdoppelt und entsprechend skaliert, um die Periodendauer in Sekunden zu erhalten: \\
 
 \begin{lstlisting}[language=C] 
 T = mean(diff(tmp(3:end-1)))*2/1000; 
