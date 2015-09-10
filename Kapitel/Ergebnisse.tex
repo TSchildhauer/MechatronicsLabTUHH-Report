@@ -19,7 +19,7 @@ Der Stabilizer wird in Abbildung \ref{fig.Stabilisierer-Plot} durch eine schwach
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=1.\textwidth]{Grafiken/Stab_lang.png}
-	\caption{Störung \textless $5^{\circ}$}
+	\caption{Störimpuls \textless $5^{\circ}$}
 	\label{fig.Stabilisierer-Plot}
 \end{figure}
 
@@ -29,17 +29,26 @@ In Abbildung \ref{fig.Catcher-Plot} sind die Auswirkungen des Reglers nach einer
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=1.\textwidth]{Grafiken/Catch_kurz.png}
-	\caption{Störung \textgreater $5^{\circ}$}
+%<<<<<<< HEAD
+%	\caption{Störung \textgreater $5^{\circ}$}
+%	\label{fig.Catcher-Plot}
+%\end{figure}
+%
+%\subsection{Watchdog}
+%Hin und wieder kommt es vor, dass das System in einen Zustand gerät, in dem der Controller das Pendel nicht mehr fangen und in das Top Equilibrium zurückbringen kann. Dieser Zustand ist in Abbildung \ref{fig.Watchdog-Plot} zu sehen. Um ein solches Verhalten zu verhindern, könnte man in einem nächsten Schritt einen Watchdog implementieren, der anhand der Winkelgeschwindigkeit $\dot{\theta}_1$ erkennt, wenn das Pendel nicht mehr erfolgreich geregelt werden kann. Liegt der Wert von $\dot{\theta}_1$ für eine bestimmte Zeit nicht in dem Intervall $[-\epsilon,+\epsilon]$, so kann der Watchdog einen kurzzeitigen Stopp des Pendels veranlassen und es anschließend neu starten.
+%=======
+	\caption{Störimpuls \textgreater $5^{\circ}$}
 	\label{fig.Catcher-Plot}
 \end{figure}
 
-\subsection{Watchdog}
-Hin und wieder kommt es vor, dass das System in einen Zustand gerät, in dem der Controller das Pendel nicht mehr fangen und in das Top Equilibrium zurückbringen kann. Dieser Zustand ist in Abbildung \ref{fig.Watchdog-Plot} zu sehen. Um ein solches Verhalten zu verhindern, könnte man in einem nächsten Schritt einen Watchdog implementieren, der anhand der Winkelgeschwindigkeit $\dot{\theta}_1$ erkennt, wenn das Pendel nicht mehr erfolgreich geregelt werden kann. Liegt der Wert von $\dot{\theta}_1$ für eine bestimmte Zeit nicht in dem Intervall $[-\epsilon,+\epsilon]$, so kann der Watchdog einen kurzzeitigen Stopp des Pendels veranlassen und es anschließend neu starten.
+\subsection{Resonanzfall}
+Hin und wieder kommt es vor, dass das System in einen Zustand gerät, in dem der Controller das Pendel nicht mehr fangen und in das Top Equilibrium zurückbringen kann. Dieser Zustand ist in Abbildung \ref{fig.Watchdog-Plot} zu sehen. 
+%>>>>>>> origin/Kai
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=1.\textwidth]{Grafiken/Watchdog_lang.png}
-	\caption{Watchdog}
+	\caption{Messung des Resonanzfalles des Controllers}
 	\label{fig.Watchdog-Plot}
 \end{figure}
 
