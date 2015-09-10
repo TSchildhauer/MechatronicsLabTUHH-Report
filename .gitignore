@@ -6,4 +6,5 @@
 *.toc
 *.dvi
 *.aux
+*.bak
 REPORT.pdf

@@ -1,36 +1,33 @@
 \section{Design der Controller}
 \subsection{Pendelidentifikation}
 \label{Pendelidentifikation}
-Beim Starten des Programmes zur Regelung des Pendels wird zunächst identifiziert, um welchen Pendelaufbau es sich handelt. Es wird dabei zwischen zwei zuvor definierten Pedenlarmlängen unterschieden.
-Für die Identifikation wird wird durch den Motor ein kurzer Impuls auf das Pendel gegeben. Nach diesem Impuls wird das Pendel schwingen gelassen, während der Controller den Verlauf von~$\theta_2$ aufzeichnet. Im Anschluss daran ist es möglich, aus den erhobenen Daten die Frequenz von~$\theta_2$ zu berechnen. Da sich die Frequenzen der Pendelkonfogurationen unterscheiden, kann das Programm so die entsprechenden Modelldaten laden und für die Regelung verwenden. In Abbildung \ref{fig.Identifikation} ist dieser Vorgang in den ersten fünf Sekunden zu erkennen.
+Beim Starten des Programmes zur Regelung des Pendels wird zunächst identifiziert, um welchen Pendelaufbau es sich handelt. Es wird dabei zwischen zwei zuvor definierten Pendelkonfigurationen unterschieden.
+Für die Identifikation wird, nach einem kurzen Impuls durch den Motor, das Pendel frei schwingen gelassen, während der Controller den Verlauf von~$\theta_2$ aufzeichnet. Im Anschluss daran ist es möglich, aus den erhobenen Daten die Frequenz von~$\theta_2$ zu berechnen. Da sich die Frequenzen der Pendelkonfigurationen unterscheiden, kann das Programm so die entsprechenden Modelldaten laden und für die Regelung verwenden. In Abbildung \ref{fig.Identifikation} ist dieser Vorgang in den ersten fünf Sekunden zu erkennen.
 
 \begin{figure}[htbp]
 	\centering	
-	\label{fig.Identifikation}
 	\includegraphics[width=0.8\textwidth]{Grafiken/Swingup_kurz.png}
 	\caption{Initiale Pendelidentifkation}
+	\label{fig.Identifikation}
 \end{figure}
-\colorbox{yellow}{Irgendwas stimmt mit der Referenzierung auf diese Abbildung nicht. Was habe ich falsch gemacht?} \\
-\colorbox{yellow}{Wobei ich gerade sehe, dass das bei Thomas oben ebenfalls nicht geklappt hat}
 
 
-
-\label{sec.Controller}
-\subsection{Signalverarbeitung}
-\label{signalverarbeitung} 
-Das Ausgangssignal der Inkrementalgeber wird zunächst auf Radiant-Werte umgerechnet 
+%\label{sec.Controller}
+%\subsection{Signalverarbeitung}
+%\label{signalverarbeitung} 
+%Das Ausgangssignal der Inkrementalgeber wird zunächst auf Radiant-Werte umgerechnet 
 
 \subsection{Swing-Up-Controller}
 \label{Swing-Up-Controller} 
 
-Der Swing-Up-Controller soll dem Aufschwingen des Pendels dienen und im Bereich zwischen circa $20^\circ < \left| \theta_2 \right| < 90^\circ$  und basiert auf der Lyapunov-Funktion. Diese führt dazu, dass sich bei der Wahl von
-$ \theta_2 = 0$ in der aufrechten Position des Pendels ein Regler ergibt, welche die Energie des Pendels minimiert:
+Der Swing-Up-Controller soll dem Aufschwingen des Pendels im Bereich $20^\circ < \left| \theta_2 \right| < 90^\circ$ dienen und basiert auf der Lyapunov-Funktion. Diese führt dazu, dass sich bei der Wahl von
+$ \theta_2 = 0$ in der aufrechten Position des Pendels ein Regler ergibt, welcher die Energie des Pendels minimiert:
 
 \begin{equation}
 U_{SU} = n \cdot g \cdot sign(E-E_0)\dot{\theta}_2\cos(\theta_2)
 \end{equation}
 
-Der Term $E_0$ beschreibt die gewünschte, minimale Energie des Systems.Die Energie des Pendels $E$ setzt sich aus der potentiellen Energie $E_{pot}$ und der kinetischen Energie $E_{kin}$ zusammen. Die potentielle Energie lässt sich aufgrund der Referenz im höchsten Punkt des Pendels wie folgt berechnen:
+Der Term $E_0$ beschreibt die gewünschte, minimale Energie des Systems. Die Energie des Pendels $E$ setzt sich aus der potentiellen Energie $E_{pot}$ und der kinetischen Energie $E_{kin}$ zusammen. Die potentielle Energie lässt sich aufgrund der Referenz im höchsten Punkt des Pendels wie folgt berechnen:
 \begin{equation}
 E_{pot} = m_2 \cdot g \cdot l_2 \cdot (cos(\theta_2)-1)
 \end{equation}
@@ -45,34 +42,28 @@ Die Umsetzung des Reglers in Simulink ist in Abbildung \ref{fig.Simu_Swing-Up} z
 
 \begin{figure}[h!]
   \centering	
-	\label{fig.Simu_Swing-Up}
-   \includegraphics[width=1\textwidth]{Grafiken/simulink_swingup.png}
+  	\includegraphics[width=1\textwidth]{Grafiken/simulink_swingup.png}
       \caption{Swing-Up-Controller und Zweipunktregler}
+	\label{fig.Simu_Swing-Up}
 \end{figure}
 
 
 \subsection{Zweipunktregler}
 \label{zweipunktregler} 
 
-Für den Bereich zwischen circa $\left| \theta_2 \right| \geq 90^\circ$ soll der Zweipunktregler (eng. Bang-bang control) das invertierte Pendel regeln. Dieser schaltet die maximale positive oder negative Spannung auf den Motor, abhängig von $ \theta_2 $ und $ \dot{\theta_2} $, daraus folgt die Übertragungfunktion:
+Für den Bereich $\left| \theta_2 \right| \geq 90^\circ$ soll ein Zweipunktregler (eng. Bang-bang control) das invertierte Pendel regeln. Dieser schaltet die maximale positive oder negative Spannung auf den Motor, abhängig von $ \theta_2 $ und $ \dot{\theta_2} $, daraus folgt die Übertragungsfunktion:
 
 \begin{equation}
 U = 10 \cdot sign(U_{SU} \cdot \theta_2 \cdot \cos(\dot{\theta}_2))
 \end{equation}
 
-Das entsprechende Simulink-Modell in Abb. \ref{fig.Simu_Swing-Up}
-zu sehen. 
+Die Implementierung in Simulink ist ebenfalls als Teil des Modells in Abbildung~\ref{fig.Simu_Swing-Up} zu erkennen (Signum- und Gain-Baustein).
 
-\begin{figure}[h!]
-  \caption{Swing-Up-Controller}
-  \centering
-   % \includegraphics[width=0.5\textwidth]{swing_up}
-\end{figure}
 
 \subsection{Catcher}
 \label{catcher} 
 
-Der Catcher dient der genaueren Regelung des Pendels nahe des oberen Equilibriums von $ \theta_2 $. Um in dem Bereich optimal und robust zu Regeln,wird ein LQ-Regler verwendet. Dieser basiert auf der Minimiering der Cost-Function, welche folgenden Form besitzt:
+Der Catcher dient der genaueren Regelung des Pendels nahe des oberen Equilibriums von $ \theta_2 $. Um in dem Bereich optimal und robust zu Regeln, wird ein LQ-Regler verwendet. Dieser basiert auf der Minimiering der Cost-Function, welche folgenden Form besitzt:
 
 \begin{equation}
  V = \int_0^\infty \! (x^T(t) Qx(t) + u^t(t) R u(t))  \mathrm{d}t
@@ -96,17 +87,18 @@ q =\begin{bmatrix}
         \end{bmatrix}
 \end{equation}
  
-Die Diagonalwerte der Matrix R der Cost-Funktion beeinflussen die Geschwindigkeit der Regelung und wurden zunächst für den Catcher auf eins gesetz.
-Zusammen mit den Eingangs- und Ausgangsmatritzen A und B lässt sich mithilfe des Matlab-Befehls $F = -lqr(A,B,Q,R)$ der LQR-Controller generieren.
+Die Diagonalwerte der Matrix R der Cost-Funktion beeinflussen die Geschwindigkeit der Regelung und wurden zunächst für den Catcher auf~$1$ gesetzt.
+Zusammen mit den Eingangs- und Ausgangsmatrizen A und B lässt sich mithilfe des Matlab-Befehls $F = -lqr(A,B,Q,R)$ der LQR-Controller generieren.
 
+\colorbox{yellow}{Zitat fehlt noch}
 Die L-Matrix lässt sich über die Riccati-Gleichung \cite{Werner.2013} herleiten. Zunächst ergibt sich die P-Matrix als Lösung der Ricatti-Gleichung, daraus lässt sich mithilfe der bekannten Matritzen und des Place-Befehls $L=-place(A',C',p)'$ in Matlab berechnen.
 Das Simulink-Modell des Observers ist in Abb. \ref{fig.obs_catcher} zu sehen.
 
 \begin{figure}[htbp]
 	\centering	
-	\label{fig.obs_catcher}
 	\includegraphics[width=0.8\textwidth]{Grafiken/simulink_observer_catcher.png}
 	\caption{Observer des Catchers in Simulink}
+	\label{fig.obs_catcher}
 \end{figure}
 
 \subsection{Stabilizer}
@@ -123,44 +115,44 @@ q =\begin{bmatrix}
         \end{bmatrix}
 \end{equation}
 
-Der Observer des Stabilizers ist in Abb. \ref{fig.obs_stabilizer} abgebildet, Abb. \ref{fig.top_equilibrium} bietet einen Überblick über die Verschaltung des Catchers und Stabilizers.
+Der Observer des Stabilizers ist in Abbildung \ref{fig.obs_stabilizer} dargestellt, während Abbildung \ref{fig.top_equilibrium} einen Überblick über die Verschaltung des Catchers und Stabilizers bietet.
 
 \begin{figure}[htbp]
 	\centering	
-	\label{fig.obs_stabilizer}
 	\includegraphics[width=1\textwidth]{Grafiken/simulink_observer_stabilizer.png}
 	\caption{Simulink-Block des Observers des Stabilizers}
+	\label{fig.obs_stabilizer}
 \end{figure}
 
 \begin{figure}[h!]
 	\centering	
-	\label{fig.top_equilibrium}
 	\includegraphics[width=1\textwidth]{Grafiken/simulink_top_equilibrium.png}
 	\caption{Aufbau des Catchers und Stabilizers in Simulink}
+	\label{fig.top_equilibrium}
 \end{figure}
 
 \subsection{Soft-Switch}
 \label{Softswitch}
 Um den Übergang zwischen dem Catcher und dem stabilisierenden Controller möglichst weich zu gestalten, wurde ein Soft-Switch implementiert.
 
-Ziel dieses Switches ist es, extreme Sprünge des Controllerausgangssignals beim Umschalten zwischen den Controllern zu verhindern, selbst wenn die einzelnen Regelsignale des Catchers und des Stabilisierers sehr weit auseinander liegen.
+Ziel dieses Switches ist es, extreme Sprünge des Controllerausgangssignals beim Umschalten zwischen den Controllern zu verhindern, selbst wenn die einzelnen Regelsignale des Catchers und des Stabilizers sehr weit auseinander liegen.
 
 \begin{figure}[htbp]
 	\centering	
-	\label{fig.Soft-Switch}
 	\includegraphics[width=0.8\textwidth]{Grafiken/SoftSwitch.png}
 	\caption{Soft-Switch}
+	\label{fig.Soft-Switch}
 \end{figure}
 
-Die Umsetzung erfolgt, indem die einzelnen Regelsignale mit Verstärkungsfaktoren multipliziert werden, die in der Summe genau 1 ergeben, und sich das Gesamtsignal aus den gewichteten Einzelsignalen zusammensetzt.
+Die Umsetzung erfolgt, indem die einzelnen Regelsignale mit Verstärkungsfaktoren multipliziert werden, die in der Summe genau~$1$ ergeben, und sich das Gesamtsignal aus den gewichteten Einzelsignalen zusammensetzt.
 
-Zunächst ist lediglich der Catcher aktiv. Dies kommt dadurch zum Ausdruck, dass sein Verstärkungsfaktor $f_c$ den Wert 1 besitzt. Folglich muss der Faktor $f_s$ des Stabilisierers 0 betragen.
+Zunächst ist lediglich der Catcher aktiv. Dies kommt dadurch zum Ausdruck, dass sein Verstärkungsfaktor $f_c$ den Wert 1 besitzt. Folglich muss der Faktor $f_s$ des Stabilizers 0 betragen.
 
 Wenn nun der Betrag des Winkels $\theta_2$ für mindestens $t_{wait}$ kleiner als $\theta_{trig}$ ist, beginnt der Crossfader, das Verhältnis der Regelsignale zu verändern.
-Während der Faktor des Catchers innerhalb der Zeit $t_{fade}$ linear von 1 auf 0 abfällt, erhöht sich der Faktor des Stabilisierers gegenläufig innerhalb derselben Zeit von 0 auf 1.
-Nach Abschluss dieses Vorgangs ist nur noch der Stabilisierer für die Regelung des Pendels zuständig (vgl. Abbildung \ref{fig.Soft-Switch}). \\
+Während der Faktor des Catchers innerhalb der Zeit $t_{fade}$ linear von 1 auf 0 abfällt, erhöht sich der Faktor des Stabilizers gegenläufig innerhalb derselben Zeit von 0 auf 1.
+Nach Abschluss dieses Vorgangs ist nur noch der Stabilizer für die Regelung des Pendels zuständig (vgl. Abbildung \ref{fig.Soft-Switch}). \\
 
-Wird zu irgendeiner Zeit der Winkel $\theta_{trig}$ überschritten, wird instantan mittels eines Hardswitches der Catcher wieder aktiv geschaltet.
+Wird zu irgendeiner Zeit der Winkel $\theta_{trig}$ überschritten, wird augenblicklich mittels eines Hard-Switches der Catcher wieder aktiv geschaltet.
 
 In unserem Controller wurden die Werte wie folgt gewählt:
 \begin{eqnarray*}
@@ -171,13 +163,14 @@ In unserem Controller wurden die Werte wie folgt gewählt:
 
 \begin{figure}[htbp]
 	\centering	
-	\label{fig.Simu_Soft-Switch}
 	\includegraphics[width=0.8\textwidth]{Grafiken/simulink_softswitch.png}
-	\caption{Soft-Switch}
+	\caption{Soft-Switch in Simulink}
+	\label{fig.Simu_Soft-Switch}
 \end{figure}
 
-Die Abbildung \ref{fig.Simu_Soft-Switch} zeigt die Umsetzung dieses Soft-Switches in Simulink. Der Block `ramp' erzeugt dabei den Faktor $f_s$ woraus sich ebenfalls $f_c$ ableiten lässt. \\
-\colorbox{yellow}{Integratoren als Timer erwähnen?}
+Die Abbildung~\ref{fig.Simu_Soft-Switch} zeigt die Umsetzung dieses Soft-Switches in Simulink. Der Block `ramp' erzeugt dabei den Faktor $f_s$ woraus sich ebenfalls $f_c$ ableiten lässt.
+
+Als Timer, wie sie innerhalb des `ramp' - Blocks zu finden sind, werden grundsätzlich Integrator-Blöcke verwendet. Schließt man am Eingang eines solchen Integrators die Konstante $1$ an, so ist der Wert des Ausgangs die Zeit seit dem letzten Reset.\\
 
 \textit{Hinweis:} Die Funktionsweise dieses Verfahrens ist dabei identisch mit der eines Crossfaders, wie er teilweise beim Übergang zwischen zwei Musikstücken verwendet wird.
 
