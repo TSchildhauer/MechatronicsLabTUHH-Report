@@ -1,12 +1,19 @@
 \section{Identifikation der Parameter}
 \label{sec.Parameter}
-Das im Theorieteil betrachtete Modell des Furuta-Pendels (siehe \citep{Cazzolato.2011}) unterscheidet sich von dem Modell des zu verwendenden Furuta-Pendels des Institutes, wie in Abb. %TODO 
-ersichtlich.
+Das im Theorieteil betrachtete Modell des Furuta-Pendels (siehe \cite{Cazzolato.2011}) unterscheidet sich von dem Modell des zu verwendenden Furuta-Pendels des Institutes, wie in Abbildung~\ref{fig.FurutaPlant} ersichtlich.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=1.\textwidth]{Grafiken/adelaideimagenew}
+	\caption{Darstellung des Furuta-Pendels. (Zur Verfügung gestellt vom Betreuer des Labors) }
+	\label{fig.FurutaPlant}
+\end{figure}
+
 Die gegeben bzw. gemessenen Parameter müssen daher an das theoretische Modell angepasst werden. Für die Längen der Pendelarme gilt somit:
 \begin{eqnarray}
 L_1 &=& l_a \nonumber \\
-L_2 &=& l_{pm}
-l_sens=l_r+l_b-l_a+l_c/2;
+L_2 &=& l_{pm} \nonumber \\
+l_{sens}=l_r+l_b-l_a+l_c/2
 \end{eqnarray}
 
 
@@ -15,43 +22,32 @@ Die Punktmassen des theoretischen Pendel-Modells ergeben sich bei Beachtung der 
 m_1 &=& m_{sens}+m_r+m_a \nonumber \\
 m_2 &=& m_p+m_{pm}
 \end{eqnarray}
-Die Massenträgheiten... %TODO
+Die Massenträgheiten können ebenso zusammengefasst werden und ergeben sich wie folgt:
 %Kai: ich habe einfach unsere equations aus matlab eingefügt!
-\begin{eqnarray}
+%Thomas: ja, das merkt man ^^ hier ist gan
+\begin{eqnarray*}
 J_{1,norm}&=&\dfrac{J_M +J_{Enc1}+(m_r \cdot l_r \cdot l_r)}{12+(m_r (-0.5 l_r-l_b+l_a)^2)+(4/10) (m_a  {r_a}^{2})} \\
 J_{2,norm}&=& J_{m,b}+J_{Enc2}   + \dfrac{(m_p \cdot {l_p}^{2})}{3} \\
 J_0&=&J_{1,norm}+ m_1 \cdot {l_1}^{2} + m_2 \cdot {L_1}^{2} \\ 
 J_2&=&J_{2,norm}+m2 \cdot {l_2}^2           \\
-\end{eqnarray}
-\begin{eqnarray}
-l1=sqrt((l_sens.^2 \dot m_sens+l_b.^2 \dot m_b)./(m_sens+m_b));
-l2=l_pm
-\end{eqnarray}
+\end{eqnarray*}
+Für die Längen $l_1$ und $l_2$ erhält man
+\begin{align*}
+l_1 &= \sqrt{\frac{(l_{sens}^2 \dot m_{sens}+l_b^2 \dot m_b)}{m_{sens} + m_b})} \\
+l_2 &= l_{pm}
+\end{align*}
 
 %Kai: ab hier sind das wieder die von dustin/den anderen!
-\begin{equation}
-J_{arm} = m_r \frac{l^2_r}{12}+m_r(\frac{1}{2}l_r+l_b-l_a)^2
-\end{equation}
-
-\begin{equation}
-J_{pend1}=m_bl^2_a
-\end{equation}
-
-\begin{equation}
-J_{sens}=m_{sens}(l_a-l_b-l_r-\frac{1}{2}l_c)^2
-\end{equation}
-
-\begin{equation}
-J_{ps}=m_p(r_b+\frac{1}{2}l_p)^2
-\end{equation}
-
-\begin{equation}
-J_{pm}=m_{pm}l^2_{pm}
-\end{equation}
-
-\begin{equation}
-J_{arm}+J_{pend1}+J_{sens}=m_1l^2_1J_{pm}+J_{ps}=m_2l^2_2
-\end{equation}
+und für die einzelnen Trägheitsmomente:
+\begin{align*}
+J_{arm} &= m_r \frac{l^2_r}{12}+m_r(\frac{1}{2}l_r+l_b-l_a)^2 \\
+J_{pend1} &= m_bl^2_a \\
+J_{sens} &= m_{sens}(l_a-l_b-l_r-\frac{1}{2}l_c)^2 \\
+J_{ps} &= m_p(r_b+\frac{1}{2}l_p)^2 \\
+J_{pm} &= m_{pm}l^2_{pm} \\
+J_{arm}+J_{pend1}+J_{sens} &= m_1l^2_1 \\ 
+J_{pm}+J_{ps} &= m_2l^2_2 \\
+\end{align*}
 
 %Hier sind unsere werte! noch viele Latex-Fehler!
 % Thomas: ich schreib hier mal einen Absatz.
