@@ -2,12 +2,25 @@
 \label{sec.Einleitung}
 
 Dieser Bericht befasst sich mit der Modellierung und der Regelung eines invertierten Pendels, das auch \emph{Furuta-Pendel} genannt wird. 
+Ziel des Labors ist es, einen robusten Regler zu entwerfen der die folgenden drei Aufgaben erfüllt:
+\begin{enumerate}
+	\item Das Pendel aufschwingen, bis der \emph{Schwingarm} durch die grenzstabile aufrechte Lage schwingt.
+	\item Den \emph{Schwingarm} in der aufrechten Lage fangen und dort halten.
+	\item Den \emph{Dreharm} zurück zur Ausgangslage bringen, ohne dass dabei der \emph{Schwingarm} aus der aufrechten Lage herausfällt.
+\end{enumerate}
+Im Rest dieses Berichtes wird der \emph{Dreharm} mit Arm~1 und der \emph{Schwingarm} mit Arm~2 bezeichnet.
+Für weitere Erläuterungen sei auf Abschnitt~\ref{sec.Theorie} verwiesen.
 Der Bericht ist Teil des Fachlabor Mechatronik im Sommersemester 2015 an der Technischen Universität Hamburg-Harburg und stellt die im Zuge dieses Labors durchgeführten Berechnungen, Modellierungen und versuche dar. 
+Für die mathematische Modellierung und die Auslegung der Regler werden Matlab und Simulink verwendet.
+Diese Programme stehen den Autoren von der Universität aus zur Verfügung.
 
 Abschnitt~\ref{sec.Theorie} befasst sich mit den nötigen theoretischen Grundlagen und der mathematischen Modellierung des Pendels.
 Dort wird primär auf die Quelle~\citep{Cazzolato.2011} eingegangen, welche als Vorlage genutzt wurde und vom Betreuer des Labors zur Verfügung gestellt wurde.
 
 In Abschnitt~\ref{sec.Parameter} werden die für die Regelung nötigen Parameter aus dem realen Pendel abgeleitet. 
-Dazu werden bestimmte Größen zusammengefasst 
+Gemessene Größen wie Massen und Längen des realen Pendels werden dazu umgeformt und zusammengefasst um diese auf die Form des mathematischen Modells zu bringen.
+Es folgt eine Auflistung der auf diese Weise identifizierten Größen, die in das mathematische Modell einfließen und die Grundlage für die Regelung bilden.
 
+Die Auslegung und Implementierung der Regler in Matlab und Simulink wird in Abschnitt~\ref{sec.Controller} behandelt.
+Es wird auf die verschiedenen Formen von Regelungsalgorithmen eingegangen, die im Zuge 
 
