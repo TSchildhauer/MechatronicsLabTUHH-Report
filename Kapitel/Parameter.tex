@@ -80,11 +80,27 @@ l_p &= \SI{0.262}{\metre}\\
 \end{align*}
 
 
-Die Gleichung des DC-Motors, der den Pendelarm und somit direkt $\theta_2$ antreibt, kann aus der gegebenen Formel des Research Articles der University of Adelaide, abgeleitet werden.\cite{Cazzolato.2011}
+Die Gleichung des DC-Motors, der den Pendelarm und somit direkt $\theta_2$ antreibt, kann aus dem Research Articles der University of Adelaide, entnommen werden:\citep{Cazzolato.2011}
+
+\begin{equation}
+V = L_m \cdot \dot{i} + R_m \cdot i + K_m \cdot \theta_1
+\end{equation}
+
+Umgestellt nach $ \dot{i}$ ergibt sich folgende Gleichung:
+
+\begin{equation}
+ \dot{i} = \dfrac{V \cdot R_m \cdot i - K_m \cdot \dot{\theta_1}}{L_m}
+\end{equation}
+
+Für das Drehmoment des Motors gilt:
+\begin{equation}
+\tau = K_m \cdot i 
+\end{equation}
+
 Auch die Parameter des DC-Motors wurden aus dem Dokument entnommen. Folgende Parameter sind gegeben:
 
 \begin{align}
-K_m &= 0,09  \dfrac{Nm}{A} \\
-R_m &= 7,8  \Omega \\
-L_m &= 0,005  H 
+K_m &= 0,09 ~\dfrac{Nm}{A} \\
+R_m &= 7,8  ~\Omega \\
+L_m &= 0,005  ~H 
 \end{align}

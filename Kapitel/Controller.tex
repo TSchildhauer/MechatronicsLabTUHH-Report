@@ -58,7 +58,7 @@ Für den Bereich $\left| \theta_2 \right| \geq 90^\circ$ soll ein Zweipunktregle
 U = 10 \cdot sign(U_{SU} \cdot \theta_2 \cdot \cos(\dot{\theta}_2))
 \end{equation}
 
-Die Implementierung in Simulink ist ebenfalls als Teil des Modells in Abbildung~\ref{fig.Simu_Swing-Up} zu erkennen (Signum- und Gain-Baustein).
+Die Implementierung in Simulink ist ebenfalls als Teil des Modells in Abbildung~\ref{fig.Simu_Swing-Up} zu erkennen (Signum- und Gain-Baustein zusätzlich zum Swing-Up-Controller).
 
 
 \subsection{Catcher}
@@ -89,10 +89,9 @@ q =\begin{bmatrix}
 \end{equation}
  
 Die Diagonalwerte der Matrix R der Cost-Funktion beeinflussen die Geschwindigkeit der Regelung und wurden zunächst für den Catcher auf~$1$ gesetzt.
-Zusammen mit den Eingangs- und Ausgangsmatrizen A und B lässt sich mithilfe des Matlab-Befehls $F = -lqr(A,B,Q,R)$ der LQR-Controller generieren.
+Zusammen mit den Eingangs- und Ausgangsmatrizen A und B lässt sich mithilfe des Matlab-Befehls $F = -lqr(A,B,Q,R)$ der LQR-Controller generieren.\citep{Werner.2013}
 
-\colorbox{yellow}{Zitat fehlt noch}
-Die L-Matrix lässt sich über die Riccati-Gleichung \cite{Werner.2013} herleiten. Zunächst ergibt sich die P-Matrix als Lösung der Ricatti-Gleichung, daraus lässt sich mithilfe der bekannten Matritzen und des Place-Befehls $L=-place(A',C',p)'$ in Matlab berechnen.
+Die L-Matrix lässt sich über die Riccati-Gleichung herleiten, siehe \citep{Werner.2013}. Zunächst ergibt sich die P-Matrix als Lösung der Ricatti-Gleichung, daraus lässt sich mithilfe der bekannten Matritzen und des Place-Befehls $L=-place(A',C',p)'$ in Matlab berechnen.
 Das Simulink-Modell des Observers ist in Abb. \ref{fig.obs_catcher} zu sehen.
 
 \begin{figure}[htbp]
