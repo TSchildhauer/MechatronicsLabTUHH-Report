@@ -24,7 +24,7 @@ Die beiden Arme haben die Längen $L_1$ und $L_2$ sowie die Massen $m_1$ und $m_
 $l_1$ und $l_2$ bezeichnen die jeweiligen Abstände der Massenmittelpunkte zum Rotationspunkt der Arme.
 Die Arme besitzen die Trägheitstensoren $J_1$ und $J_2$ um ihren jeweiligen Massenmittelpunkt und ihre Gelenke unterliegen linearer Dämpfung mit den Dämpfungskonstanten $b_1$ und $b_2$.
 
-\subsubsection{Annahmen}
+\subsection{Annahmen}
 \label{sub.sub.Annahmen}
 Vor der Aufstellung des Gleichungssystems werden in~\cite{Cazzolato.2011} einige Annahmen getroffen, die an dieser Stelle kurz wiederholt werden:
 \begin{enumerate}
@@ -39,7 +39,7 @@ Aus den obigen Annahmen können unter Anderem die Trägheitstensoren der beiden 
 Das führt zu folgender Formel für $J_{1,2}$:
 
 
-\subsubsection{Mathematisches Modell}
+\subsection{Mathematisches Modell}
 \label{sub.sub.Mathematisches-Modell}
 Mit den in Abschnitt~\ref{sub.sub.Annahmen} getroffenen Annahmen wird in~\cite{Cazzolato.2011} ein mathematisches Modell entwickelt mit dem die Winkelbeschleunigung der beiden Pendelarme in Abhängigkeit der Zustands\-varibalen beschrieben werden kann. 
 Zunächst wird die Gleichung für die beiden Drehmomente $\tau_1$ und $\tau_2$ in Abhängigkeit der Trägheitstensoren $J_1$ und $J_2$ aufgestellt.
@@ -69,34 +69,34 @@ Zunächst wird die Gleichung für die beiden Drehmomente $\tau_1$ und $\tau_2$ i
 \end{equation}
 
 Die Trägheitstensoren der beiden Pendelarme können nun unter den Annahmen $J_{xx} \approx 0$ und $J_{yy} \approx J_{zz}$ wie folgt vereinfacht werden: 
-\begin{eqnarray}
+\begin{align}
 \label{eqn.Tragheitstensoren}
-J_1=
+J_1&=
 \begin{bmatrix}
 J_{1xx} & 0 & 0\\
 0 & J_{1yy} & 0\\
 0 & 0 & J_{1zz}
 \end{bmatrix}
-\approx
+&\approx
 \begin{bmatrix}
 0 & 0 & 0\\
 0 & \bar{J}_{1} & 0\\
 0 & 0 & \bar{J}_{1}
 \end{bmatrix}
 \nonumber \\
-J_2=
+J_2&=
 \begin{bmatrix}
 J_{2xx} & 0 & 0\\
 0 & J_{2yy} & 0\\
 0 & 0 & J_{2zz}
 \end{bmatrix}
-\approx
+&\approx
 \begin{bmatrix}
 0 & 0 & 0\\
 0 & \bar{J}_{2} & 0\\
 0 & 0 & \bar{J}_{2}
 \end{bmatrix}
-\end{eqnarray}
+\end{align}
 
 Folgende Bezeichnungen werden zur Vereinfachung von Gleichung~\ref{eqn.TauComplex} eingeführt.
 \begin{eqnarray}
@@ -132,77 +132,83 @@ In~\cite{Cazzolato.2011} wird bei der Aufstellung dieser ein Vorzeichenfehler ge
 %\colorbox{yellow}{Die folgenden Gleichungen enthalten noch den Fehler, den wir finden sollten.} \\
 %\colorbox{yellow}{Ich habe die Lösung gerade nicht parat.Thomas: ich auch noch nicht}
 Nachfolgend die nichtlinearen Differentialgleichungen für die Winkelbeschleunigung von Arm~1;
-\begin{equation}
+\begin{multline}
 \ddot{\theta}_1 =
 \frac{
 \begin{bmatrix}
--\hat{J}_2b_1 \\ 
-m_2L_1l_2\cos(\theta_2)b_2 \\ 
--\hat{J}^2_2\sin(2\theta_2) \\ 
--\frac{1}{2}\hat{J}_2m_2L_1l_2\cos(\theta_2)\sin(2\theta_2) \\ 
-\hat{J}_2m_2L_1l_2\sin(\theta_2)
+	-\hat{J}_2b_1 \\ 
+	m_2L_1l_2\cos(\theta_2)b_2 \\ 
+	-\hat{J}^2_2\sin(2\theta_2) \\ 
+	-\frac{1}{2}\hat{J}_2m_2L_1l_2\cos(\theta_2)\sin(2\theta_2) \\ 
+	\hat{J}_2m_2L_1l_2\sin(\theta_2)
 \end{bmatrix}^T
 \begin{bmatrix}
-\dot{\theta}_1 \\ 
-\dot{\theta}_2 \\ 
-\dot{\theta}_1\dot{\theta}_2 \\ 
-\dot{\theta}^2_1 \\ 
-\dot{\theta}^2_2
-\end{bmatrix}
+	\dot{\theta}_1 \\ 
+	\dot{\theta}_2 \\ 
+	\dot{\theta}_1\dot{\theta}_2 \\ 
+	\dot{\theta}^2_1 \\ 
+	\dot{\theta}^2_2
+\end{bmatrix} }
+{\hat{J}_0\hat{J}_2+\hat{J}^2_2\sin^2(\theta_2)-m^2_2L^2_1l^2_2\cos^2(\theta_2)} \\ 
+%<--linebreak here
 +
+\frac{
 \begin{bmatrix}
-\hat{J}_2 \\ 
--m_2L_1l_2\cos(\theta_2) \\ 
-\frac{1}{2}m^2_2l^2_2L_1\sin(2\theta_2)
+	\hat{J}_2 \\ 
+	-m_2L_1l_2\cos(\theta_2) \\ 
+	\frac{1}{2}m^2_2l^2_2L_1\sin(2\theta_2)
 \end{bmatrix}^T
 \begin{bmatrix}
-\tau_1 \\ 
-\tau_2 \\ 
-g
+	\tau_1 \\ 
+	\tau_2 \\ 
+	g
 \end{bmatrix} }
 {\hat{J}_0\hat{J}_2+\hat{J}^2_2\sin^2(\theta_2)-m^2_2L^2_1l^2_2\cos^2(\theta_2)}
-\end{equation}
+\end{multline}
 
 und die Winkelbeschleunigung von Arm~2:
 
-\begin{equation}
+\begin{multline}
 \ddot{\theta}_2 =
 \frac{
 \begin{bmatrix}
-m_2L_1l_2\cos(\theta_2)b_1 \\ 
--b_2(\hat{J}_0+\hat{J}_2\sin^2(\theta_2)) \\ 
-m_2L_1l_2\hat{J}_2\cos(\theta_2)\sin(2\theta_2) \\ 
-\frac{1}{2}\sin(2\theta_2)(\hat{J}_0\hat{J}_2+\hat{J}^2_2\sin^2(\theta_2)) \\ 
--\frac{1}{2}m^2_2L^2_1l^2_2\sin(2\theta_2)
-\end{bmatrix}
+	m_2L_1l_2\cos(\theta_2)b_1 \\ 
+	-b_2(\hat{J}_0+\hat{J}_2\sin^2(\theta_2)) \\ 
+	m_2L_1l_2\hat{J}_2\cos(\theta_2)\sin(2\theta_2) \\ 
+	\frac{1}{2}\sin(2\theta_2)(\hat{J}_0\hat{J}_2+\hat{J}^2_2\sin^2(\theta_2)) \\ 
+	-\frac{1}{2}m^2_2L^2_1l^2_2\sin(2\theta_2)
+\end{bmatrix}^T
 \begin{bmatrix}
-\dot{\theta}_1 \\ 
-\dot{\theta}_2 \\ 
-\dot{\theta}_1\dot{\theta}_2 \\ 
-\dot{\theta}^2_1 \\ 
-\dot{\theta}^2_2
-\end{bmatrix}
+	\dot{\theta}_1 \\ 
+	\dot{\theta}_2 \\ 
+	\dot{\theta}_1\dot{\theta}_2 \\ 
+	\dot{\theta}^2_1 \\ 
+	\dot{\theta}^2_2
+\end{bmatrix} }
+{\hat{J}_0\hat{J}_2+\hat{J}^2_2\sin^2(\theta_2)-m^2_2L^2_1l^2_2\cos^2(\theta_2)} \\
+%<--linebreak here
 +
+\frac{
 \begin{bmatrix}
--m_2l_2\cos(\theta_2) \\ 
-\hat{J}_0+\hat{J}_2\sin^2(\theta_2) \\ 
--m_2l_2\sin(\theta_2)(\hat{J}_0+\hat{J}_2\sin^2(\theta_2))
-\end{bmatrix}
+	-m_2l_2\cos(\theta_2) \\ 
+	\hat{J}_0+\hat{J}_2\sin^2(\theta_2) \\ 
+	-m_2l_2\sin(\theta_2)(\hat{J}_0+\hat{J}_2\sin^2(\theta_2))
+\end{bmatrix}^T
 \begin{bmatrix}
-\tau_1 \\ 
-\tau_2 \\ 
-g
+	\tau_1 \\ 
+	\tau_2 \\ 
+	g
 \end{bmatrix} }
 {\hat{J}_0\hat{J}_2+\hat{J}^2_2\sin^2(\theta_2)-m^2_2L^2_1l^2_2\cos^2(\theta_2)}
-\end{equation}
+\end{multline}
 
 Diese entsprechen den Gleichungen~(33) und~(34) in~\cite{Cazzolato.2011}.
 
-\subsubsection{Linearisierung}
+\subsection{Linearisierung}
 \label{sub.sub.Linearisierung}
-Die korrigierten nichtlinearen Differentialgleichungen aus Abschnitt~\ref{sub.sub.Mathematisches-Modell} werden in diesem Abschnitt nach dem Vorbild von~\cite{Cazzolato.2011} für den Stabilen unteren Gleichgewichtszustand (Index~1) und den grenz\-stabilen oberen Gleichgewichtszustand (Index~2) linearisiert.
+Die korrigierten nichtlinearen Differentialgleichungen aus Abschnitt~\ref{sub.sub.Mathematisches-Modell} werden in diesem Abschnitt nach dem Vorbild von~\cite{Cazzolato.2011} für den grenz\-stabilen oberen Gleichgewichtszustand ($\theta_2 = \pi$) linearisiert.
 
-Zustandsvariablen in den Gleichgewichtszuständen:
+So ergeben sich folgende Zustands-Variablen für den Gleichgewichtszustand:
 \begin{eqnarray}
 \theta_{1e} &=& 0		\nonumber \\
 \theta_{2e} &=& \pi	\nonumber \\
@@ -210,6 +216,8 @@ Zustandsvariablen in den Gleichgewichtszuständen:
 \dot{\theta}_{2e} &=& 0	
 \end{eqnarray}
 
+Nach dem Vorbild von~\cite{Cazzolato.2011} kann so ein lineares Differentialgleichungssystem erster Ordnung aufgestellt werden. 
+Ein solches System ist notwendig, um gängige Theorien für den Entwurf von Reglern zu nutzen~\citep{Werner.2013}. 
 \begin{equation}
 \begin{bmatrix}
 \dot{\theta}_1 \\ 
@@ -243,6 +251,7 @@ B_{41} & B_{42}
 \end{bmatrix}
 \end{equation}
 
+Nach dem Einsetzen der Zustands-Variablen im Gleichgewichtszustand erhalten wir die Matrixeinträge in Abhängigkeit der Variablen aus Abschnitt~\ref{sub.sub.Mathematisches-Modell}.
 \begin{eqnarray}
 A_{31} &=& 0	\nonumber \\
 A_{32} &=& \frac{gm^2_2l^2_2L_1}{(\hat{J}_0\hat{J}_2-m^2_2L^2_1l^2_2)}	\nonumber \\
@@ -252,89 +261,11 @@ A_{41} &=& 0	\nonumber \\
 A_{42} &=& \frac{gm_2l_2\hat{J}_0}{(\hat{J}_0\hat{J}_2-m^2_2L^2_1l^2_2)}	\nonumber \\
 A_{43} &=& \frac{-b_1m_2l_2L_1}{(\hat{J}_0\hat{J}_2-m^2_2L^2_1l^2_2)}	\nonumber \\
 A_{44} &=& \frac{-b_2\hat{J}_0}{(\hat{J}_0\hat{J}_2-m^2_2L^2_1l^2_2)}	\nonumber \\
+\end{eqnarray}
+\begin{eqnarray}
 B_{31} &=& \frac{\hat{J}_2}{(\hat{J}_0\hat{J}_2-m^2_2L^2_1l^2_2)}	\nonumber \\
 B_{41} &=& \frac{m_2L_1l_2}{(\hat{J}_0\hat{J}_2-m^2_2L^2_1l^2_2)}	\nonumber \\
 B_{32} &=& \frac{m_2L_1l_2}{(\hat{J}_0\hat{J}_2-m^2_2L^2_1l^2_2)}	\nonumber \\
 B_{42} &=& \frac{\hat{J}_0}{(\hat{J}_0\hat{J}_2-m^2_2L^2_1l^2_2)}	\nonumber \\
 \end{eqnarray}
-
-%\begin{equation}
-%\tau=K_mi
-%\end{equation}
-%Thomas: Das ist hier nicht an der richtigen Stelle
-%\subsection{Herleitung der Modellparameter}
-%\label{sub.HerleitungParameter}
-%Das mathematische Modell, wie es in Abschnitt~\ref{sub.sub.Mathematisches-Modell} beschrieben ist, wird als Simulink-Modell realisiert.
-%Es dient als State-Estimator für den Controller, der in Abschnitt~\ref{sec.Controller} beschrieben wird.
-%Das Furuta-Pendel, welches uns im Labor zur Verfügung gestellt wird, muss nun auf die Form des mathematischen Modells gebracht werden.
-%Herleitung der Parameter (1 zu 1 aus dem Dokument übernommen.. die Herangehensweise muss also noch verändert werden!):
-%\begin{eqnarray}
-%L_1 &=& l_a \nonumber \\
-%L_2 &=& l_{pm}
-%\end{eqnarray}
-%\begin{eqnarray}
-%m_1 &=& m_b+m_r+m_{sens} \nonumber \\
-%m_2 &=& m_p+m_{pm}
-%\end{eqnarray}
-%
-%\begin{equation}
-%J_{arm} = m_r \frac{l^2_r}{12}+m_r(\frac{1}{2}l_r+l_b-l_a)^2
-%\end{equation}
-%
-%\begin{equation}
-%J_{pend1}=m_bl^2_a
-%\end{equation}
-%
-%\begin{equation}
-%J_{sens}=m_{sens}(l_a-l_b-l_r-\frac{1}{2}l_c)^2
-%\end{equation}
-%
-%\begin{equation}
-%J_{ps}=m_p(r_b+\frac{1}{2}l_p)^2
-%\end{equation}
-%
-%\begin{equation}
-%J_{pm}=m_{pm}l^2_{pm}
-%\end{equation}
-%
-%\begin{equation}
-%J_{arm}+J_{pend1}+J_{sens}=m_1l^2_1J_{pm}+J_{ps}=m_2l^2_2
-%\end{equation}
-%
-%\begin{equation}
-%l_1=\sqrt{\frac{m_r \frac{l^2_r}{12}+m_r(\frac{1}{2}l_r+l_b-l_a)^2+m_bl^2_a+m_{sens}(l_a-l_b-l_r-\frac{1}{2}l_c)^2}{m_1}}
-%\end{equation}
-%
-%\begin{equation}
-%l_2=\sqrt{\frac{m_{pm}l^2_{pm}+m_p(r_b+\frac{1}{2}l_p)^2}{m_2}}
-%\end{equation}
-%
-%... Hier sollten wir gucken, ob wie die Umformungen evtl. anders vornehmen.
-%
-%\begin{eqnarray}
-%Liste der Zahlenwerte
-%\end{eqnarray}
-%
-%\begin{equation}
-%\end{equation}
-%
-%\begin{equation}
-%\end{equation}
-%
-%Swing-Up
-%\begin{equation}
-%U = n \cdot g \cdot sign(E-E_0)\dot{\theta}_2\cos(\theta_2)
-%\end{equation}
-%
-%\begin{equation}
-%E = E_{pot}+E_{kin}
-%\end{equation}
-%
-%\begin{eqnarray}
-%E_{pot} &=& m_2gl_2(\cos(\theta_2)-1) \nonumber \\
-%E_{kin} &=& \frac{1}{2}\dot{\theta}^2_2\hat{J}_2
-%\end{eqnarray}
-%
-%\begin{equation}
-%\end{equation}
 

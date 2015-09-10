@@ -3,14 +3,50 @@
 \subsection{Pendelidentifikation}
 \label{Pendelidentifikation}
 Beim Starten des Programmes zur Regelung des Pendels wird zunächst identifiziert, um welchen Pendelaufbau es sich handelt. Es wird dabei zwischen zwei zuvor definierten Pendelkonfigurationen unterschieden.
-Für die Identifikation wird, nach einem kurzen Impuls durch den Motor, das Pendel frei schwingen gelassen, während der Controller den Verlauf von~$\theta_2$ aufzeichnet. Im Anschluss daran ist es möglich, aus den erhobenen Daten die Frequenz von~$\theta_2$ zu berechnen. Da sich die Frequenzen der Pendelkonfigurationen unterscheiden, kann das Programm so die entsprechenden Modelldaten laden und für die Regelung verwenden. In Abbildung \ref{fig.Identifikation} ist dieser Vorgang in den ersten fünf Sekunden zu erkennen.
+Für die Identifikation wird, nach einem kurzen Impuls durch den Motor, das Pendel frei schwingen gelassen, während der Controller den Verlauf von~$\theta_2$ aufzeichnet. Im Anschluss daran ist es möglich, aus den erhobenen Daten die Periodendauer von~$\theta_2$ zu berechnen. Da sich die Frequenzen der Pendelkonfigurationen unterscheiden, kann das Programm so die entsprechenden Modelldaten laden und für die Regelung verwenden. In Abbildung \ref{fig.Identifikation} ist dieser Vorgang in den ersten fünf Sekunden zu erkennen.
 
 \begin{figure}[htbp]
 	\centering	
-	\includegraphics[width=0.8\textwidth]{Grafiken/Swingup_kurz.png}
+	\includegraphics[width=1\textwidth]{Grafiken/Swingup_kurz.png}
 	\caption{Initiale Pendelidentifkation}
 	\label{fig.Identifikation}
 \end{figure}
+
+Für die Berechnung der Periodendauer müssen die Daten, die Matlab von dem Steuerprogramm dSpace erhält (``theta2\_data''), interpretiert werden. Im ersten Schritt werden die lokalen Extrema gesucht. Dazu wurde die im Internet frei verfügbare Matlab Funktion ``extrema.m'' in das Projekt eingebunden und wie folgt verwendet:\\
+
+\begin{lstlisting}[language=C] 
+[XMAX,IMAX,XMIN,IMIN] = extrema(theta2_data); 
+\end{lstlisting}
+\vspace{1em}
+
+Der nächste Schritt besteht darin, die Extrema nach ihren Auftrittszeitpunkten zu sortieren: \\
+
+
+\begin{lstlisting}[language=C] 
+tmp = sort([IMAX; IMIN]); 
+\end{lstlisting}
+\vspace{1em}
+
+Anschließend werden wird der Mittelwert der zeitlichen Abstände zwischen den Extrema berechnet. Da sich sowohl die Werte für Maxima als auch für Minima  in `tmp' befinden, wird der gefundene Mittelwert noch verdoppelt und entsprechend skaliert, um die Periodendauer in Sekunden zu erhalten: \\
+
+\begin{lstlisting}[language=C] 
+T = mean(diff(tmp(3:end-1)))*2/1000; 
+\end{lstlisting}
+\vspace{1em}
+
+Schlussendlich kann nun mithilfe von $T$ und der Grenzperiodendauer $T_{diff}$ die passende Konfiguration ausgewählt werden: \\
+
+\begin{lstlisting}[language=C] 
+T_diff = 0.9343;
+if(T<T_diff)
+    disp('short');
+    config_short;
+else
+    disp('long');
+    config_long;
+end
+\end{lstlisting}
+\vspace{1em}
 
 
 %\label{sec.Controller}
@@ -92,11 +128,12 @@ Die Diagonalwerte der Matrix R der Cost-Funktion beeinflussen die Geschwindigkei
 Zusammen mit den Eingangs- und Ausgangsmatrizen A und B lässt sich mithilfe des Matlab-Befehls $F = -lqr(A,B,Q,R)$ der LQR-Controller generieren.\citep{Werner.2013}
 
 Die L-Matrix lässt sich über die Riccati-Gleichung herleiten, siehe \citep{Werner.2013}. Zunächst ergibt sich die P-Matrix als Lösung der Ricatti-Gleichung, daraus lässt sich mithilfe der bekannten Matritzen und des Place-Befehls $L=-place(A',C',p)'$ in Matlab berechnen.
+
 Das Simulink-Modell des Observers ist in Abb. \ref{fig.obs_catcher} zu sehen.
 
 \begin{figure}[htbp]
 	\centering	
-	\includegraphics[width=0.8\textwidth]{Grafiken/simulink_observer_catcher.png}
+	\includegraphics[width=1\textwidth]{Grafiken/simulink_observer_catcher.png}
 	\caption{Observer des Catchers in Simulink}
 	\label{fig.obs_catcher}
 \end{figure}
@@ -139,12 +176,12 @@ Ziel dieses Switches ist es, extreme Sprünge des Controllerausgangssignals beim
 
 \begin{figure}[htbp]
 	\centering	
-	\includegraphics[width=0.8\textwidth]{Grafiken/SoftSwitch.png}
+	\includegraphics[width=1\textwidth]{Grafiken/SoftSwitch.png}
 	\caption{Soft-Switch}
 	\label{fig.Soft-Switch}
 \end{figure}
 
-Die Umsetzung erfolgt, indem die einzelnen Regelsignale mit Verstärkungsfaktoren multipliziert werden, die in der Summe genau~$1$ ergeben, und sich das Gesamtsignal aus den gewichteten Einzelsignalen zusammensetzt.
+Die Umsetzung erfolgt, indem die einzelnen Regelsignale mit Verstärkungs\-fak\-to\-ren multipliziert werden, die in der Summe genau~$1$ ergeben, und sich das Gesamtsignal aus den gewichteten Einzelsignalen zusammensetzt.
 
 Zunächst ist lediglich der Catcher aktiv. Dies kommt dadurch zum Ausdruck, dass sein Verstärkungsfaktor $f_c$ den Wert 1 besitzt. Folglich muss der Faktor $f_s$ des Stabilizers 0 betragen.
 
@@ -163,14 +200,14 @@ In unserem Controller wurden die Werte wie folgt gewählt:
 
 \begin{figure}[htbp]
 	\centering	
-	\includegraphics[width=0.8\textwidth]{Grafiken/simulink_softswitch.png}
+	\includegraphics[width=1\textwidth]{Grafiken/simulink_softswitch.png}
 	\caption{Soft-Switch in Simulink}
 	\label{fig.Simu_Soft-Switch}
 \end{figure}
 
 Die Abbildung~\ref{fig.Simu_Soft-Switch} zeigt die Umsetzung dieses Soft-Switches in Simulink. Der Block `ramp' erzeugt dabei den Faktor $f_s$ woraus sich ebenfalls $f_c$ ableiten lässt.
 
-Als Timer, wie sie innerhalb des `ramp' - Blocks zu finden sind, werden grundsätzlich Integrator-Blöcke verwendet. Schließt man am Eingang eines solchen Integrators die Konstante $1$ an, so ist der Wert des Ausgangs die Zeit seit dem letzten Reset.\\
+Als Timer, wie sie innerhalb des `ramp' - Blocks zu finden sind, werden grund\-sätz\-lich Integrator-Blöcke verwendet. Schließt man am Eingang eines solchen Integrators die Konstante $1$ an, so ist der Wert des Ausgangs die Zeit seit dem letzten Reset.\\
 
 \textit{Hinweis:} Die Funktionsweise dieses Verfahrens ist dabei identisch mit der eines Crossfaders, wie er teilweise beim Übergang zwischen zwei Musikstücken verwendet wird.
 

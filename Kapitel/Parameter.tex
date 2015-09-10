@@ -1,6 +1,8 @@
 \section{Identifikation der Parameter}
 \label{sec.Parameter}
+
 Das im Theorieteil betrachtete Modell des Furuta-Pendels (siehe \cite{Cazzolato.2011}) unterscheidet sich von dem Modell des zu verwendenden Furuta-Pendels des Institutes, wie in Abbildung~\ref{fig.FurutaPlant} ersichtlich.
+Die gegeben bzw. gemessenen Parameter müssen daher an das theoretische Modell angepasst werden. Für die Längen der Pendelarme gilt somit:
 
 \begin{figure}[htbp]
 	\centering
@@ -16,12 +18,12 @@ L_2 &=& l_{pm} \nonumber \\
 l_{sens}=l_r+l_b-l_a+\dfrac{l_c2}{2}
 \end{eqnarray}
 
-
 Die Punktmassen des theoretischen Pendel-Modells ergeben sich bei Beachtung der Trägheitsachsen zu:
 \begin{eqnarray}
 m_1 &=& m_{sens}+m_r+m_a \nonumber \\
 m_2 &=& m_p+m_{pm}
 \end{eqnarray}
+
 Die Massenträgheiten können ebenso zusammengefasst werden und ergeben sich wie folgt:
 %Kai: ich habe einfach unsere equations aus matlab eingefügt!
 %Thomas: ja, das merkt man ^^ hier ist gan
@@ -31,6 +33,7 @@ J_{2,norm}&=& J_{m,b}+J_{Enc2}   + \dfrac{(m_p \cdot {l_p}^{2})}{3} \\
 J_0&=&J_{1,norm}+ m_1 \cdot {l_1}^{2} + m_2 \cdot {L_1}^{2} \\ 
 J_2&=&J_{2,norm}+m_2 \cdot {l_2}^2           \\
 \end{eqnarray*}
+
 Für die Längen $l_1$ und $l_2$ erhält man
 \begin{align*}
 l_1 &= \sqrt{\frac{(l_{sens}^2 \dot m_{sens}+l_b^2 \dot m_b)}{m_{sens} + m_b})} \\
@@ -79,8 +82,7 @@ l_{pm} &= \SI{0.229}{\metre} &
 l_p &= \SI{0.262}{\metre}\\
 \end{align*}
 
-
-Die Gleichung des DC-Motors, der den Pendelarm und somit direkt $\theta_2$ antreibt, kann aus dem Research Articles der University of Adelaide, entnommen werden:\citep{Cazzolato.2011}
+Die Gleichung des DC-Motors, der den Pendelarm und somit direkt $\theta_2$ antreibt, kann aus dem Research Articles der University of Adelaide, entnommen werden \citep{Cazzolato.2011}:
 
 \begin{equation}
 V = L_m \cdot \dot{i} + R_m \cdot i + K_m \cdot \theta_1
