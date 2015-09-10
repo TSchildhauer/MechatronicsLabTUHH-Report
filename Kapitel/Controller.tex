@@ -111,7 +111,7 @@ wie folgt berechnen:
 
 \begin{equation}
  Q = C' \cdot q'^T \cdot q^T \cdot C
-\end{equation}
+\end{equation} \newpage
 
 Für den Vektor $q$ wurden folgenden Werte angenommen:
 
@@ -127,7 +127,7 @@ q =\begin{bmatrix}
 Die Diagonalwerte der Matrix R der Cost-Funktion beeinflussen die Geschwindigkeit der Regelung und wurden zunächst für den Catcher auf~$1$ gesetzt.
 Zusammen mit den Eingangs- und Ausgangsmatrizen A und B lässt sich mithilfe des Matlab-Befehls $F = -lqr(A,B,Q,R)$ der LQR-Controller generieren.\citep{Werner.2013}
 
-Die L-Matrix lässt sich über die Riccati-Gleichung herleiten, siehe \citep{Werner.2013}. Zunächst ergibt sich die P-Matrix als Lösung der Ricatti-Gleichung, daraus lässt sich mithilfe der bekannten Matritzen und des Place-Befehls $L=-place(A',C',p)'$ in Matlab berechnen.
+Die L-Matrix lässt sich über die Riccati-Gleichung herleiten, siehe \citep{Werner.2013}. Zunächst ergibt sich die P-Matrix als Lösung der Ricatti-Gleichung, daraus lässt sich mithilfe der bekannten Matritzen und des Place-Befehls \\ $L=-place(A',C',p)'$ in Matlab berechnen.
 
 Das Simulink-Modell des Observers ist in Abb. \ref{fig.obs_catcher} zu sehen.
 
@@ -167,7 +167,7 @@ Der Observer des Stabilizers ist in Abbildung \ref{fig.obs_stabilizer} dargestel
 	\caption{Aufbau des Catchers und Stabilizers in Simulink}
 	\label{fig.top_equilibrium}
 \end{figure}
-
+\newpage
 \subsection{Soft-Switch}
 \label{Softswitch}
 Um den Übergang zwischen dem Catcher und dem stabilisierenden Controller möglichst weich zu gestalten, wurde ein Soft-Switch implementiert.
@@ -198,16 +198,24 @@ In unserem Controller wurden die Werte wie folgt gewählt:
 && t_{fade} = 5 s
 \end{eqnarray*}
 
-\begin{figure}[htbp]
+
+Die Abbildungen~\ref{fig.Simu_Soft-Switch} und \ref{fig.Simu_Ramp} zeigen die Umsetzung dieses Soft-Switches in Simulink. Der Block `ramp' erzeugt dabei den Faktor $f_s$ woraus sich ebenfalls $f_c$ ableiten lässt.
+
+Als Timer, wie sie innerhalb des `ramp' - Blocks zu finden sind (vgl. Abbildung \ref{fig.Simu_Ramp}), werden grund\-sätz\-lich Integrator-Blöcke verwendet. Schließt man am Eingang eines solchen Integrators die Konstante $1$ an, so ist der Wert des Ausgangs die Zeit seit dem letzten Reset.\\
+
+\begin{figure}[htb]
 	\centering	
 	\includegraphics[width=1\textwidth]{Grafiken/simulink_softswitch.png}
 	\caption{Soft-Switch in Simulink}
 	\label{fig.Simu_Soft-Switch}
 \end{figure}
 
-Die Abbildung~\ref{fig.Simu_Soft-Switch} zeigt die Umsetzung dieses Soft-Switches in Simulink. Der Block `ramp' erzeugt dabei den Faktor $f_s$ woraus sich ebenfalls $f_c$ ableiten lässt.
-
-Als Timer, wie sie innerhalb des `ramp' - Blocks zu finden sind, werden grund\-sätz\-lich Integrator-Blöcke verwendet. Schließt man am Eingang eines solchen Integrators die Konstante $1$ an, so ist der Wert des Ausgangs die Zeit seit dem letzten Reset.\\
+\begin{figure}[htb]
+	\centering	
+	\includegraphics[width=1\textwidth]{Grafiken/simulink_ramp.png}
+	\caption{Ramp-Baustein in Simulink}
+	\label{fig.Simu_Ramp}
+\end{figure}
 
 \textit{Hinweis:} Die Funktionsweise dieses Verfahrens ist dabei identisch mit der eines Crossfaders, wie er teilweise beim Übergang zwischen zwei Musikstücken verwendet wird.
 
