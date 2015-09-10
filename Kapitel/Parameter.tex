@@ -13,7 +13,7 @@ Die gegeben bzw. gemessenen Parameter müssen daher an das theoretische Modell a
 \begin{eqnarray}
 L_1 &=& l_a \nonumber \\
 L_2 &=& l_{pm} \nonumber \\
-l_{sens}=l_r+l_b-l_a+l_c/2
+l_{sens}=l_r+l_b-l_a+\dfrac{l_c2}{2}
 \end{eqnarray}
 
 
@@ -26,22 +26,22 @@ Die Massenträgheiten können ebenso zusammengefasst werden und ergeben sich wie
 %Kai: ich habe einfach unsere equations aus matlab eingefügt!
 %Thomas: ja, das merkt man ^^ hier ist gan
 \begin{eqnarray*}
-J_{1,norm}&=&\dfrac{J_M +J_{Enc1}+(m_r \cdot l_r \cdot l_r)}{12+(m_r (-0.5 l_r-l_b+l_a)^2)+(4/10) (m_a  {r_a}^{2})} \\
+J_{1,norm}&=&\dfrac{J_M +J_{Enc,1}+(m_r \cdot l_r \cdot l_r)}{12+(m_r (-0.5 l_r-l_b+l_a)^2)+(\dfrac{4}{10}) (m_a  {r_a}^{2})} \\
 J_{2,norm}&=& J_{m,b}+J_{Enc2}   + \dfrac{(m_p \cdot {l_p}^{2})}{3} \\
 J_0&=&J_{1,norm}+ m_1 \cdot {l_1}^{2} + m_2 \cdot {L_1}^{2} \\ 
-J_2&=&J_{2,norm}+m2 \cdot {l_2}^2           \\
+J_2&=&J_{2,norm}+m_2 \cdot {l_2}^2           \\
 \end{eqnarray*}
 Für die Längen $l_1$ und $l_2$ erhält man
 \begin{align*}
 l_1 &= \sqrt{\frac{(l_{sens}^2 \dot m_{sens}+l_b^2 \dot m_b)}{m_{sens} + m_b})} \\
-l_2 &= l_{pm}
+l_2 &\cong l_{pm}
 \end{align*}
 
 %Kai: ab hier sind das wieder die von dustin/den anderen!
 und für die einzelnen Trägheitsmomente:
 \begin{align*}
 J_{arm} &= m_r \frac{l^2_r}{12}+m_r(\frac{1}{2}l_r+l_b-l_a)^2 \\
-J_{pend1} &= m_bl^2_a \\
+J_{pend,1} &= m_bl^2_a \\
 J_{sens} &= m_{sens}(l_a-l_b-l_r-\frac{1}{2}l_c)^2 \\
 J_{ps} &= m_p(r_b+\frac{1}{2}l_p)^2 \\
 J_{pm} &= m_{pm}l^2_{pm} \\
@@ -53,8 +53,8 @@ J_{pm}+J_{ps} &= m_2l^2_2 \\
 % Thomas: ich schreib hier mal einen Absatz.
 Die folgenden Werte sind im Zuge des Labors zu Verfügung gestellt oder durch rudimentäre Messungen erhalten und werden an dieser Stelle der Vollständigkeit halber aufgeführt. 
 \begin{align*}
-b1 &= \SI{1e-4}{\newton\metre\second} &
-b2 &= \SI{2.8e-4}{\newton\metre\second} \\
+b_1 &= \SI{1e-4}{\newton\metre\second} &
+b_2 &= \SI{2.8e-4}{\newton\metre\second} \\
 g &= \SI{9.81}{\metre\per\square\second} &
 k_{1,phi} &= \SI{0.5}{}\\
 R_a &= \SI{10}{\ohm} &
@@ -86,5 +86,5 @@ Auch die Parameter des DC-Motors wurden aus dem Dokument entnommen. Folgende Par
 \begin{align}
 K_m &= 0,09  \dfrac{Nm}{A} \\
 R_m &= 7,8  \Omega \\
-L_m &= 0,005  H \\
+L_m &= 0,005  H 
 \end{align}
