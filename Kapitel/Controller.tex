@@ -145,7 +145,7 @@ Ziel dieses Switches ist es, extreme Sprünge des Controllerausgangssignals beim
 	\label{fig.Soft-Switch}
 \end{figure}
 
-Die Umsetzung erfolgt, indem die einzelnen Regelsignale mit Verstärkungsfaktoren multipliziert werden, die in der Summe genau~$1$ ergeben, und sich das Gesamtsignal aus den gewichteten Einzelsignalen zusammensetzt.
+Die Umsetzung erfolgt, indem die einzelnen Regelsignale mit Verstärkungs\-fak\-to\-ren multipliziert werden, die in der Summe genau~$1$ ergeben, und sich das Gesamtsignal aus den gewichteten Einzelsignalen zusammensetzt.
 
 Zunächst ist lediglich der Catcher aktiv. Dies kommt dadurch zum Ausdruck, dass sein Verstärkungsfaktor $f_c$ den Wert 1 besitzt. Folglich muss der Faktor $f_s$ des Stabilizers 0 betragen.
 
@@ -171,7 +171,7 @@ In unserem Controller wurden die Werte wie folgt gewählt:
 
 Die Abbildung~\ref{fig.Simu_Soft-Switch} zeigt die Umsetzung dieses Soft-Switches in Simulink. Der Block `ramp' erzeugt dabei den Faktor $f_s$ woraus sich ebenfalls $f_c$ ableiten lässt.
 
-Als Timer, wie sie innerhalb des `ramp' - Blocks zu finden sind, werden grundsätzlich Integrator-Blöcke verwendet. Schließt man am Eingang eines solchen Integrators die Konstante $1$ an, so ist der Wert des Ausgangs die Zeit seit dem letzten Reset.\\
+Als Timer, wie sie innerhalb des `ramp' - Blocks zu finden sind, werden grund\-sätz\-lich Integrator-Blöcke verwendet. Schließt man am Eingang eines solchen Integrators die Konstante $1$ an, so ist der Wert des Ausgangs die Zeit seit dem letzten Reset.\\
 
 \textit{Hinweis:} Die Funktionsweise dieses Verfahrens ist dabei identisch mit der eines Crossfaders, wie er teilweise beim Übergang zwischen zwei Musikstücken verwendet wird.
 
