@@ -7,7 +7,7 @@ In diesem Abschnitt wird auf die Theorie des sogenannten \emph{Furuta Pendels} e
 Bei dem \emph{Furuta Pendel}, auch drehbares invertiertes Pendel genannt, handelt es sich um ein 1992 von Katsuhisa Furuta entwickeltes mechanisches Pendel. 
 Es besteht aus einem angetriebenen Arm, welcher in der horizontalen Ebene rotieren kann. 
 An diesem Arm ist ein Pendelarm befestigt, welcher frei in der zum angetriebenen Arm orthogonalen Ebene rotiert. 
-Das Furuta Pendel ist ein Beispiel eines komplexen nichtlinearen Oszillators. \cite{Cazzolato.2011}
+Das Furuta Pendel ist ein Beispiel eines komplexen nichtlinearen Oszillators. \citep{Cazzolato.2011}
 
 \begin{figure}[htbp]
 	\centering
@@ -129,8 +129,8 @@ Hieraus ergeben sich die folgenden nichtlinearen Differentialgleichungen für di
 In~\cite{Cazzolato.2011} wird bei der Aufstellung dieser ein Vorzeichenfehler gemacht, der an dieser Stelle korrigiert ist und auf den nicht näher eingegangen wird.
 
 
-\colorbox{yellow}{Die folgenden Gleichungen enthalten noch den Fehler, den wir finden sollten.} \\
-\colorbox{yellow}{Ich habe die Lösung gerade nicht parat.Thomas: ich auch noch nicht}
+%\colorbox{yellow}{Die folgenden Gleichungen enthalten noch den Fehler, den wir finden sollten.} \\
+%\colorbox{yellow}{Ich habe die Lösung gerade nicht parat.Thomas: ich auch noch nicht}
 Nachfolgend die nichtlinearen Differentialgleichungen für die Winkelbeschleunigung von Arm~1;
 \begin{equation}
 \ddot{\theta}_1 =
@@ -196,7 +196,7 @@ g
 {\hat{J}_0\hat{J}_2+\hat{J}^2_2\sin^2(\theta_2)-m^2_2L^2_1l^2_2\cos^2(\theta_2)}
 \end{equation}
 
-Diese entsprechen den Gleichungen~(33) und~(34) in~\cite{Cazzolato.2011}
+Diese entsprechen den Gleichungen~(33) und~(34) in~\cite{Cazzolato.2011}.
 
 \subsubsection{Linearisierung}
 \label{sub.sub.Linearisierung}
@@ -262,78 +262,79 @@ B_{42} &=& \frac{\hat{J}_0}{(\hat{J}_0\hat{J}_2-m^2_2L^2_1l^2_2)}	\nonumber \\
 %\tau=K_mi
 %\end{equation}
 %Thomas: Das ist hier nicht an der richtigen Stelle
-\subsection{Herleitung der Modellparameter}
-\label{sub.HerleitungParameter}
-Das mathematische Modell, wie es in Abschnitt~\ref{sub.sub.Mathematisches-Modell} beschrieben ist, wird als Simulink-Modell realisiert.
-Es dient als State-Estimator für den Controller, der in Abschnitt~\ref{sec.Controller} beschrieben wird.
-Das Furuta-Pendel, welches uns im Labor zur Verfügung gestellt wird, muss nun auf die Form des mathematischen Modells gebracht werden.
-Herleitung der Parameter (1 zu 1 aus dem Dokument übernommen.. die Herangehensweise muss also noch verändert werden!):
-\begin{eqnarray}
-L_1 &=& l_a \nonumber \\
-L_2 &=& l_{pm}
-\end{eqnarray}
-\begin{eqnarray}
-m_1 &=& m_b+m_r+m_{sens} \nonumber \\
-m_2 &=& m_p+m_{pm}
-\end{eqnarray}
+%\subsection{Herleitung der Modellparameter}
+%\label{sub.HerleitungParameter}
+%Das mathematische Modell, wie es in Abschnitt~\ref{sub.sub.Mathematisches-Modell} beschrieben ist, wird als Simulink-Modell realisiert.
+%Es dient als State-Estimator für den Controller, der in Abschnitt~\ref{sec.Controller} beschrieben wird.
+%Das Furuta-Pendel, welches uns im Labor zur Verfügung gestellt wird, muss nun auf die Form des mathematischen Modells gebracht werden.
+%Herleitung der Parameter (1 zu 1 aus dem Dokument übernommen.. die Herangehensweise muss also noch verändert werden!):
+%\begin{eqnarray}
+%L_1 &=& l_a \nonumber \\
+%L_2 &=& l_{pm}
+%\end{eqnarray}
+%\begin{eqnarray}
+%m_1 &=& m_b+m_r+m_{sens} \nonumber \\
+%m_2 &=& m_p+m_{pm}
+%\end{eqnarray}
+%
+%\begin{equation}
+%J_{arm} = m_r \frac{l^2_r}{12}+m_r(\frac{1}{2}l_r+l_b-l_a)^2
+%\end{equation}
+%
+%\begin{equation}
+%J_{pend1}=m_bl^2_a
+%\end{equation}
+%
+%\begin{equation}
+%J_{sens}=m_{sens}(l_a-l_b-l_r-\frac{1}{2}l_c)^2
+%\end{equation}
+%
+%\begin{equation}
+%J_{ps}=m_p(r_b+\frac{1}{2}l_p)^2
+%\end{equation}
+%
+%\begin{equation}
+%J_{pm}=m_{pm}l^2_{pm}
+%\end{equation}
+%
+%\begin{equation}
+%J_{arm}+J_{pend1}+J_{sens}=m_1l^2_1J_{pm}+J_{ps}=m_2l^2_2
+%\end{equation}
+%
+%\begin{equation}
+%l_1=\sqrt{\frac{m_r \frac{l^2_r}{12}+m_r(\frac{1}{2}l_r+l_b-l_a)^2+m_bl^2_a+m_{sens}(l_a-l_b-l_r-\frac{1}{2}l_c)^2}{m_1}}
+%\end{equation}
+%
+%\begin{equation}
+%l_2=\sqrt{\frac{m_{pm}l^2_{pm}+m_p(r_b+\frac{1}{2}l_p)^2}{m_2}}
+%\end{equation}
+%
+%... Hier sollten wir gucken, ob wie die Umformungen evtl. anders vornehmen.
+%
+%\begin{eqnarray}
+%Liste der Zahlenwerte
+%\end{eqnarray}
+%
+%\begin{equation}
+%\end{equation}
+%
+%\begin{equation}
+%\end{equation}
+%
+%Swing-Up
+%\begin{equation}
+%U = n \cdot g \cdot sign(E-E_0)\dot{\theta}_2\cos(\theta_2)
+%\end{equation}
+%
+%\begin{equation}
+%E = E_{pot}+E_{kin}
+%\end{equation}
+%
+%\begin{eqnarray}
+%E_{pot} &=& m_2gl_2(\cos(\theta_2)-1) \nonumber \\
+%E_{kin} &=& \frac{1}{2}\dot{\theta}^2_2\hat{J}_2
+%\end{eqnarray}
+%
+%\begin{equation}
+%\end{equation}
 
-\begin{equation}
-J_{arm} = m_r \frac{l^2_r}{12}+m_r(\frac{1}{2}l_r+l_b-l_a)^2
-\end{equation}
-
-\begin{equation}
-J_{pend1}=m_bl^2_a
-\end{equation}
-
-\begin{equation}
-J_{sens}=m_{sens}(l_a-l_b-l_r-\frac{1}{2}l_c)^2
-\end{equation}
-
-\begin{equation}
-J_{ps}=m_p(r_b+\frac{1}{2}l_p)^2
-\end{equation}
-
-\begin{equation}
-J_{pm}=m_{pm}l^2_{pm}
-\end{equation}
-
-\begin{equation}
-J_{arm}+J_{pend1}+J_{sens}=m_1l^2_1J_{pm}+J_{ps}=m_2l^2_2
-\end{equation}
-
-\begin{equation}
-l_1=\sqrt{\frac{m_r \frac{l^2_r}{12}+m_r(\frac{1}{2}l_r+l_b-l_a)^2+m_bl^2_a+m_{sens}(l_a-l_b-l_r-\frac{1}{2}l_c)^2}{m_1}}
-\end{equation}
-
-\begin{equation}
-l_2=\sqrt{\frac{m_{pm}l^2_{pm}+m_p(r_b+\frac{1}{2}l_p)^2}{m_2}}
-\end{equation}
-
-... Hier sollten wir gucken, ob wie die Umformungen evtl. anders vornehmen.
-
-\begin{eqnarray}
-Liste der Zahlenwerte
-\end{eqnarray}
-
-\begin{equation}
-\end{equation}
-
-\begin{equation}
-\end{equation}
-
-Swing-Up
-\begin{equation}
-U = n \cdot g \cdot sign(E-E_0)\dot{\theta}_2\cos(\theta_2)
-\end{equation}
-
-\begin{equation}
-E = E_{pot}+E_{kin}
-\end{equation}
-
-\begin{eqnarray}
-E_{pot} &=& m_2gl_2(\cos(\theta_2)-1) \nonumber \\
-E_{kin} &=& \frac{1}{2}\dot{\theta}^2_2\hat{J}_2
-\end{eqnarray}
-
-\begin{equation}
-\end{equation}
